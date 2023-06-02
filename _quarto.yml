@@ -1,0 +1,23 @@
+project:
+  type: book
+
+book:
+  title: "Github_tutorial"
+  author: "Jane Doe"
+  date: "2023-06-02"
+  chapters:
+    - index.qmd
+    - setup.qmd
+    - git-basics.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

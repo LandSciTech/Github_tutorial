@@ -1,0 +1,136 @@
+# Using Git
+
+## Git Terminology 1
+
+- Repository (repo): Folder that contains a hidden .git file that tracks
+  changes made to files in that folder. The folder can “live” on your
+  local computer or a server like GitHub’s. On GitHub the repository is
+  also the web page where all the files are stored among other things
+- Push: Copy changes from your local version of the repo to the GitHub
+  version
+- Pull: Copy changes from the GitHub version of the repo to you local
+  version
+- Clone: make a copy of a git repository. By default in R studio this is
+  connected to the GitHub version (called the remote or origin)
+- Commit: A marker that is kept in the git history and helps to
+  incrementally track changes. Made useful by descriptive commit
+  messages
+
+
+
+## When to commit
+
+- Often!
+- But not too often!
+  - Use “Amend previous commit” checkbox when you want to make sure to
+    commit but aren’t sure you are done yet
+- Try to make each commit distinct and accomplish one thing. eg:
+  - `Make data cleaning script`
+  - `Create exploratory plots`
+  - `Fix bug in data cleaning handling of dates`
+  - `Update exploratory plots with dates`
+
+
+
+## What to commit
+
+- Everything!
+  - Git can track any file but it does a better job with raw text files
+    (eg: .R, .Rmd, .html, .md, .py, .sh, .txt)
+  - For files like word docs or pdfs it can’t track the content and
+    tracks the whole file every time you make a change
+- Except!:
+  - Nothing sensitive ie passwords, keys etc (you can have a private
+    repo if you are not ready to share code with the world but still don't store passwords)
+  - Probably not large datasets. I just keep these locally but would be
+    better to have them on a shared drive and download them
+    programmatically
+- .gitignore: a file at the top level of git repo that tells git what
+  not to track.
+  - Uses regular expressions to match file or folder names or types.
+  - Example file:
+    <https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore>
+
+## When to push
+- Fairly often. If you are working alone pushing is a way to back up
+  your files. If you are collaborating it is a way to make your work
+  available to others. If you don’t push and then a collaborator makes
+  changes to the same file it gets a bit tricky (but fixable).
+- Once you push you can’t use the “Amend previous commit” trick
+- If you find yourself reluctant to push because you aren’t ready for
+  others to use your work consider making a branch (see below)
+
+
+## When to pull
+
+- Ideally every day, or when a collaborator lets you know they pushed
+- Pulling often prevents getting out of sync with collaborators
+- Before pulling be sure to commit all your local work
+- Good practice to pull before pushing but git will normally warn you if you forget.
+
+
+
+## Merge conflicts in Push/Pull
+
+- If a collaborator pushed their changes after you last pulled you will
+  need to pull before you can push. If your changes don’t conflict git
+  will automatically merge their changes with yours.
+- Merge conflicts: when a collaborator made changes that overlap your
+  changes. Git can’t automatically fit them together you have to review
+  and pick the part to keep.
+
+
+
+## Resolving merge conflicts
+This is a typical scenario with a merge conflict:
+"Ah! I pulled at the start of the day but then a collaborator pushed a
+change to the same line and now when I try to push it says I have to
+pull first."  
+
+![](assets/img/push_fail.PNG)
+
+"And then when I pull I get merge conflicts!"
+
+![](assets/img/merge_conflict.png)
+
+Not too hard to fix. Go through each file that has the orange U in the
+Git pane. Find the location of the conflict. HEAD is your local version
+and the alphanumeric string is the commit id for the remote version that
+conflicts. Pick the one you want and delete all the marker lines
+(\<\<\<, === and \>\>\>). Then commit and continue on with your work.
+
+
+
+## Avoiding merge conflicts
+
+- Pull regularly
+- Keep in touch with collaborators so you are not working on the same
+  lines at the same time.
+- Use a branch
+
+
+
+## Branches
+
+- A stream of commits that diverges from the main stream until it is
+  ready to re-join.
+- Helpful for starting a new version of something while making sure
+  others can keep using the old version
+- Example we want to convert some functions used in a paper to become an
+  R package but Josie is working on writing the paper and needs the old
+  version to keep working. I make a branch where I re-arrange everything
+  into a package. If Josie makes changes to the main branch that affect
+  the functions I can see those and merge them into my branch.
+- See <https://happygitwithr.com/git-branches.html##git-branches> for how
+  to manage branches with the command line but it can also be done
+  through the Rstudio IDE and GitHub for the most part.
+
+
+
+## Tour of GitHub repository page
+
+- Code
+- Issues
+- Wiki
+- Settings
+

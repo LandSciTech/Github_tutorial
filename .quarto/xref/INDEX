@@ -1,0 +1,17 @@
+{
+  "setup.qmd": {
+    "setup.html": "cf4cd95a"
+  },
+  "index.qmd": {
+    "index.html": "1395ee77"
+  },
+  "summary.qmd": {
+    "summary.html": "e86a52c5"
+  },
+  "references.qmd": {
+    "references.html": "03e68c2e"
+  },
+  "git-basics.qmd": {
+    "git-basics.html": "645a59df"
+  }
+}

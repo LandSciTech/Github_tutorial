@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Github_tutorial - 1&nbsp; Installation and Setup</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./git-basics.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation and Setup</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Github_tutorial</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Using GitHub for Reproducible Research</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation and Setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git-basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation"><span class="toc-section-number">1.1</span>  Installation</a></li>
+  <li><a href="#set-username-and-email-for-git" id="toc-set-username-and-email-for-git" class="nav-link" data-scroll-target="#set-username-and-email-for-git"><span class="toc-section-number">1.2</span>  Set username and email for git</a></li>
+  <li><a href="#let-git-talk-to-github" id="toc-let-git-talk-to-github" class="nav-link" data-scroll-target="#let-git-talk-to-github"><span class="toc-section-number">1.3</span>  Let git talk to GitHub</a></li>
+  <li><a href="#start-a-new-project-with-github" id="toc-start-a-new-project-with-github" class="nav-link" data-scroll-target="#start-a-new-project-with-github"><span class="toc-section-number">1.4</span>  Start a new project with GitHub</a></li>
+  <li><a href="#work-on-a-project" id="toc-work-on-a-project" class="nav-link" data-scroll-target="#work-on-a-project"><span class="toc-section-number">1.5</span>  Work on a project</a></li>
+  <li><a href="#sync-changes-to-github-push" id="toc-sync-changes-to-github-push" class="nav-link" data-scroll-target="#sync-changes-to-github-push"><span class="toc-section-number">1.6</span>  Sync changes to GitHub: Push</a></li>
+  <li><a href="#sync-local-copy-from-github-pull" id="toc-sync-local-copy-from-github-pull" class="nav-link" data-scroll-target="#sync-local-copy-from-github-pull"><span class="toc-section-number">1.7</span>  Sync local copy from GitHub: Pull</a></li>
+  <li><a href="#add-an-existing-project-to-github" id="toc-add-an-existing-project-to-github" class="nav-link" data-scroll-target="#add-an-existing-project-to-github"><span class="toc-section-number">1.8</span>  Add an existing project to GitHub</a></li>
+  <li><a href="#git-terminology-1" id="toc-git-terminology-1" class="nav-link" data-scroll-target="#git-terminology-1"><span class="toc-section-number">1.9</span>  Git Terminology 1</a></li>
+  <li><a href="#when-to-commit" id="toc-when-to-commit" class="nav-link" data-scroll-target="#when-to-commit"><span class="toc-section-number">1.10</span>  When to commit</a></li>
+  <li><a href="#what-to-commit" id="toc-what-to-commit" class="nav-link" data-scroll-target="#what-to-commit"><span class="toc-section-number">1.11</span>  What to commit</a></li>
+  <li><a href="#when-to-pull" id="toc-when-to-pull" class="nav-link" data-scroll-target="#when-to-pull"><span class="toc-section-number">1.12</span>  When to pull</a></li>
+  <li><a href="#merge-conflicts-in-pushpull" id="toc-merge-conflicts-in-pushpull" class="nav-link" data-scroll-target="#merge-conflicts-in-pushpull"><span class="toc-section-number">1.13</span>  Merge conflicts in Push/Pull</a></li>
+  <li><a href="#resolving-merge-conflicts" id="toc-resolving-merge-conflicts" class="nav-link" data-scroll-target="#resolving-merge-conflicts"><span class="toc-section-number">1.14</span>  Resolving merge conflicts</a></li>
+  <li><a href="#avoiding-merge-conflicts" id="toc-avoiding-merge-conflicts" class="nav-link" data-scroll-target="#avoiding-merge-conflicts"><span class="toc-section-number">1.15</span>  Avoiding merge conflicts</a></li>
+  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches"><span class="toc-section-number">1.16</span>  Branches</a></li>
+  <li><a href="#tour-of-github-repository-page" id="toc-tour-of-github-repository-page" class="nav-link" data-scroll-target="#tour-of-github-repository-page"><span class="toc-section-number">1.17</span>  Tour of GitHub repository page</a></li>
+  <li><a href="#other-stuff-if-time" id="toc-other-stuff-if-time" class="nav-link" data-scroll-target="#other-stuff-if-time"><span class="toc-section-number">1.18</span>  Other stuff if time</a></li>
+  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link" data-scroll-target="#disclaimer"><span class="toc-section-number">1.19</span>  Disclaimer</a></li>
+  <li><a href="#advanced-uses" id="toc-advanced-uses" class="nav-link" data-scroll-target="#advanced-uses"><span class="toc-section-number">1.20</span>  Advanced Uses</a></li>
+  <li><a href="#issues-with-installation" id="toc-issues-with-installation" class="nav-link" data-scroll-target="#issues-with-installation"><span class="toc-section-number">1.21</span>  Issues with installation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation and Setup</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="installation" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="installation"><span class="header-section-number">1.1</span> Installation</h2>
+<ul>
+<li><p>Install R and Rstudio (available from ECCC Software Centre)</p>
+<ul>
+<li>Software Centre can be very slow to install, you can install R and RStudio without administrator permissions from the internet as well <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></li>
+</ul></li>
+<li><p>Install Git <a href="https://gitforwindows.org/" class="uri">https://gitforwindows.org/</a> (does not require admin permissions)</p>
+<ul>
+<li>NOTE: When asked about “Adjusting your PATH environment”, make sure to select “Git from the command line and also from 3rd-party software”. Otherwise, accept the defaults.</li>
+</ul></li>
+<li><p>Create a GitHub account <a href="https://github.com/" class="uri">https://github.com/</a></p></li>
+<li><p>Install R packages: Open RStudio and run in the console:</p>
+<ul>
+<li><code>install.packages("usethis")</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="set-username-and-email-for-git" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="set-username-and-email-for-git"><span class="header-section-number">1.2</span> Set username and email for git</h2>
+<ul>
+<li><code>usethis::use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")</code>
+<ul>
+<li><code>user.name</code> is the name associated with your git commits so just make it informative for your collaborators (ie: actual name, github username)</li>
+<li><code>user.email</code> must match your GitHub account email</li>
+</ul></li>
+</ul>
+</section>
+<section id="let-git-talk-to-github" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="let-git-talk-to-github"><span class="header-section-number">1.3</span> Let git talk to GitHub</h2>
+<ul>
+<li><code>usethis::create_github_token()</code>
+<ul>
+<li>Opens GitHub webpage: select “repo”, “user”, and “workflow” scopes</li>
+</ul></li>
+<li><code>gitcreds::gitcreds_set()</code></li>
+</ul>
+</section>
+<section id="start-a-new-project-with-github" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="start-a-new-project-with-github"><span class="header-section-number">1.4</span> Start a new project with GitHub</h2>
+<p><strong>Step 1</strong>: Make a new repo on GitHub + Go to <a href="https://github.com" class="uri">https://github.com</a> and make sure you are logged in.</p>
+<ul>
+<li>Near “Repositories”, click the big green “New” button.
+<ul>
+<li>How to fill this in:
+<ul>
+<li>Repository template: No template.</li>
+<li>Repository name: myrepo . Like a variable name, in code: descriptive but brief, no whitespace. Letters, digits, - , . , or _ are allowed.</li>
+<li>Description: any short description of the project</li>
+<li>Public.</li>
+<li>Initialize this repository with: Add a README file.</li>
+<li>Click the big green button that says “Create repository”.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Step 2</strong>: Copy repo URL + Now click the big green button that says “&lt;&gt; Code”.</p>
+<ul>
+<li>Copy a clone URL to your clipboard. Use the HTTPS URL.</li>
+</ul>
+<p><img src="assets/img/clone_url.png" class="img-fluid"></p>
+<p><strong>Step 3</strong>: Clone into a new project in RStudio</p>
+<ul>
+<li>File &gt; New Project &gt; Version Control &gt; Git. In the “repository URL” paste the URL of your new GitHub repository.
+<ul>
+<li>Be intentional about where you create this Project. Don’t put it inside another git repository.</li>
+<li>I suggest you “Open in new session”.</li>
+</ul></li>
+<li>Click “Create Project” to create a new directory,</li>
+<li>This should download the README.md file that we created on GitHub in the previous step. Look in RStudio’s file browser pane for the README.md file.</li>
+<li>Behind the scenes, RStudio has done this for you: <code>git clone https://github.com/see24/myrepo.git</code></li>
+</ul>
+</section>
+<section id="work-on-a-project" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="work-on-a-project"><span class="header-section-number">1.5</span> Work on a project</h2>
+<ul>
+<li>Edit the README.md file, e.g., by adding the line “This is a line from RStudio”.</li>
+<li>Save the file locally</li>
+<li>On the Git pane click commit</li>
+</ul>
+<p><img src="assets/img/git_pane.png" class="img-fluid"></p>
+<ul>
+<li>In the pop-up review the changes at the bottom</li>
+<li>Check the “Staged” box and type a commit message and click “Commit”</li>
+</ul>
+<p><img src="assets/img/git_commit_modal.png" class="img-fluid"></p>
+</section>
+<section id="sync-changes-to-github-push" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="sync-changes-to-github-push"><span class="header-section-number">1.6</span> Sync changes to GitHub: Push</h2>
+<ul>
+<li>Click “Push” in the Rstudio Git pane</li>
+<li>Look at the repo on GitHub so see the new line is there</li>
+</ul>
+<p><img src="assets/img/push.png" class="img-fluid"></p>
+</section>
+<section id="sync-local-copy-from-github-pull" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="sync-local-copy-from-github-pull"><span class="header-section-number">1.7</span> Sync local copy from GitHub: Pull</h2>
+<ul>
+<li>In the GitHub repo main page<br>
+</li>
+<li>In the upper right corner of the Readme, click on the pencil</li>
+<li>Add a line eg : “Line added from GitHub.”</li>
+<li>Click “Commit changes.”</li>
+<li>In RStudio click Pull on the Git pane</li>
+<li>You should see the new line in the Readme</li>
+</ul>
+<p><img src="assets/img/pull.png" class="img-fluid"></p>
+</section>
+<section id="add-an-existing-project-to-github" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="add-an-existing-project-to-github"><span class="header-section-number">1.8</span> Add an existing project to GitHub</h2>
+<ul>
+<li>Create a new repo and Rstudio project in the same way as above</li>
+<li>Simply copy all files into the newly created folder on your local computer</li>
+<li>Stage and commit all files that you <strong>want to store on GitHub</strong>
+<ul>
+<li>Nothing sensitive ie passwords, keys etc ( you can have a private repo if you are not ready to share code with the world)</li>
+<li>Probably not large datasets</li>
+<li>Use . gitignore to avoid git tracking things (more on this later)</li>
+</ul></li>
+</ul>
+<p><em>This is the simplest way to do it but there is more advance, more traditional git way to do it: <a href="https://happygitwithr.com/existing-github-last.html" class="uri">https://happygitwithr.com/existing-github-last.html</a></em></p>
+</section>
+<section id="git-terminology-1" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="git-terminology-1"><span class="header-section-number">1.9</span> Git Terminology 1</h2>
+<ul>
+<li>Repository (repo): Folder that contains a hidden .git file that tracks changes made to files in that folder. The folder can “live” on your local computer or a server like GitHub’s. On GitHub the repository is also the web page where all the files are stored among other things</li>
+<li>Push: Copy changes from your local version of the repo to the GitHub version</li>
+<li>Pull: Copy changes from the GitHub version of the repo to you local version</li>
+<li>Clone: make a copy of a git repository. By default in R studio this is connected to the GitHub version (called the remote or origin)</li>
+<li>Commit: A marker that is kept in the git history and helps to incrementally track changes. Made useful by descriptive commit messages</li>
+</ul>
+</section>
+<section id="when-to-commit" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="when-to-commit"><span class="header-section-number">1.10</span> When to commit</h2>
+<ul>
+<li>Often!</li>
+<li>But not too often!
+<ul>
+<li>Use “Amend previous commit” checkbox when you want to make sure to commit but aren’t sure you are done yet</li>
+</ul></li>
+<li>Try to make each commit distinct and accomplish one thing
+<ul>
+<li><code>Make data cleaning script</code></li>
+<li><code>Create exploratory plots</code></li>
+<li><code>Fix bug in data cleaning handling of dates</code></li>
+<li><code>Update exploratory plots with dates</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="what-to-commit" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="what-to-commit"><span class="header-section-number">1.11</span> What to commit</h2>
+<ul>
+<li>Everything!
+<ul>
+<li>Git can track any file but it does a better job with raw text files (eg: .R, .Rmd, .html, .md, .py, .sh, .txt)</li>
+<li>For files like word docs or pdfs it can’t track the content and tracks to whole file every time you make a change</li>
+</ul></li>
+<li>Except!:
+<ul>
+<li>Nothing sensitive ie passwords, keys etc (you can have a private repo if you are not ready to share code with the world but still)</li>
+<li>Probably not large datasets. I just keep these locally but would be better to have them on a shared drive and download them programmatically</li>
+</ul></li>
+<li>.gitignore: a file at the top level of git repo that tells git what not to track.
+<ul>
+<li>Uses regular expressions to match file or folder names or types.</li>
+<li>Example file: <a href="https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore" class="uri">https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore</a> ## When to push</li>
+</ul></li>
+<li>Fairly often. If you are working alone pushing is a way to back up your files. If you are collaborating it is away to make your work available to others. If you don’t push and then a collaborator makes changes to the same file it gets a bit tricky (but fixable).</li>
+<li>Once you push you can’t use the “Amend previous commit” trick</li>
+<li>If you find yourself reluctant to push because you aren’t ready for others to use your work consider making a branch (see below)</li>
+</ul>
+</section>
+<section id="when-to-pull" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="when-to-pull"><span class="header-section-number">1.12</span> When to pull</h2>
+<ul>
+<li>Ideally every day, or when a collaborator lets you know they pushed</li>
+<li>Pulling often prevents getting out of sync with collaborators</li>
+<li>Before pulling be sure to commit all your local work</li>
+</ul>
+</section>
+<section id="merge-conflicts-in-pushpull" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="merge-conflicts-in-pushpull"><span class="header-section-number">1.13</span> Merge conflicts in Push/Pull</h2>
+<ul>
+<li>If a collaborator pushed their changes after you last pulled you will need to pull before you can push. If your changes don’t conflict git will automatically merge their changes with yours.</li>
+<li>Merge conflicts: when a collaborator made changes that overlap your changes. Git can’t automatically fit them together you have to review and pick the part to keep.</li>
+</ul>
+</section>
+<section id="resolving-merge-conflicts" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="resolving-merge-conflicts"><span class="header-section-number">1.14</span> Resolving merge conflicts</h2>
+<p>Ah! I pulled at the start of the day but then a collaborator pushed a change to the same line and now when I try to push it says I have to pull first and then when I pull I get merge conflicts!</p>
+<p>Not too hard to fix. Go through each file that has the orange U in the Git pane. Find the location of the conflict. HEAD is your local version and the alphanumeric string is the commit id for the remote version that conflicts. Pick the one you want and delete all the marker lines (&lt;&lt;&lt;, === and &gt;&gt;&gt;). Then commit and continue on with your work <img src="assets/img/merge_conflict.png" class="img-fluid"></p>
+</section>
+<section id="avoiding-merge-conflicts" class="level2" data-number="1.15">
+<h2 data-number="1.15" class="anchored" data-anchor-id="avoiding-merge-conflicts"><span class="header-section-number">1.15</span> Avoiding merge conflicts</h2>
+<ul>
+<li>Pull regularly</li>
+<li>Keep in touch with collaborators so you are not working on the same lines at the same time.</li>
+<li>Use a branch</li>
+</ul>
+</section>
+<section id="branches" class="level2" data-number="1.16">
+<h2 data-number="1.16" class="anchored" data-anchor-id="branches"><span class="header-section-number">1.16</span> Branches</h2>
+<ul>
+<li>A stream of commits that diverges from the main stream until it is ready to re-join.</li>
+<li>Helpful for starting a new version of something while making sure others can keep using the old version’</li>
+<li>Example we want to convert some functions used in a paper to become an R package but Josie is working on writing the paper and needs the old version to keep working. I make a branch where I re-arrange everything into a package. If Josie makes changes to the main branch that affect the functions I can see those and merge them into my branch.</li>
+<li>See <a href="https://happygitwithr.com/git-branches.html##git-branches" class="uri">https://happygitwithr.com/git-branches.html##git-branches</a> for how to manage branches with the command line but it can also be done through the Rstudio IDE and GitHub for the most part.</li>
+</ul>
+</section>
+<section id="tour-of-github-repository-page" class="level2" data-number="1.17">
+<h2 data-number="1.17" class="anchored" data-anchor-id="tour-of-github-repository-page"><span class="header-section-number">1.17</span> Tour of GitHub repository page</h2>
+<ul>
+<li>Code</li>
+<li>Issues</li>
+<li>Wiki</li>
+<li>Settings</li>
+</ul>
+</section>
+<section id="other-stuff-if-time" class="level2" data-number="1.18">
+<h2 data-number="1.18" class="anchored" data-anchor-id="other-stuff-if-time"><span class="header-section-number">1.18</span> Other stuff if time</h2>
+<ul>
+<li>Making a repo work like a simple website <a href="https://happygitwithr.com/workflows-browsability.html##workflows-browsability" class="uri">https://happygitwithr.com/workflows-browsability.html##workflows-browsability</a></li>
+<li>Installing a Git Client <a href="https://happygitwithr.com/git-client.html##git-client" class="uri">https://happygitwithr.com/git-client.html##git-client</a></li>
+<li>Good default folder structure and setup for a typical analysis project: <a href="https://frbcesab.github.io/rcompendium/index.html" class="uri">https://frbcesab.github.io/rcompendium/index.html</a></li>
+</ul>
+</section>
+<section id="disclaimer" class="level2" data-number="1.19">
+<h2 data-number="1.19" class="anchored" data-anchor-id="disclaimer"><span class="header-section-number">1.19</span> Disclaimer</h2>
+<ul>
+<li>I copied almost everything from this Guide by Jenny Bryan: <a href="https://happygitwithr.com/index.html" class="uri">https://happygitwithr.com/index.html</a></li>
+</ul>
+</section>
+<section id="advanced-uses" class="level2" data-number="1.20">
+<h2 data-number="1.20" class="anchored" data-anchor-id="advanced-uses"><span class="header-section-number">1.20</span> Advanced Uses</h2>
+<ul>
+<li>Host a website: <a href="https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html" class="uri">https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html</a></li>
+<li>Use GitHub Actions for continuous integration: <a href="https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/" class="uri">https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/</a></li>
+<li>Using GitHub to manage frequently updated data:
+<ul>
+<li><a href="https://doi.org/10.1371/journal.pbio.3000125" class="uri">https://doi.org/10.1371/journal.pbio.3000125</a><br>
+</li>
+<li><a href="https://www.updatingdata.org/githubactions/" class="uri">https://www.updatingdata.org/githubactions/</a></li>
+<li><a href="https://doi.org/10.1111/2041-210X.13982" class="uri">https://doi.org/10.1111/2041-210X.13982</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="issues-with-installation" class="level2" data-number="1.21">
+<h2 data-number="1.21" class="anchored" data-anchor-id="issues-with-installation"><span class="header-section-number">1.21</span> Issues with installation</h2>
+<p>If RStudio is not finding a git installation: + Restart RStudio and try again + If still not working, run this in the windows command line: <code>git --exec-path</code> + Copy the path, then in RStudio click Tools &gt; Global Options &gt; Git/SVN and set the Git executable by clicking browse, pasting the path in the address bar and selecting the git.exe file. + Restart RStudio again</p>
+<p>See <a href="https://happygitwithr.com/rstudio-see-git.html" class="uri">https://happygitwithr.com/rstudio-see-git.html</a> for more instructions on troubleshooting</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Using GitHub for Reproducible Research</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./git-basics.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

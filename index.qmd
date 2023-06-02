@@ -1,0 +1,3 @@
+# Using GitHub for Reproducible Research {.unnumbered}
+
+This contains a set of tutorials for setting up and learning to use Git and GitHub with R and RStudio. It borrows heavily from [Happy Git With R](https://happygitwithr.com/index.html) by Jenny Bryan but with less details. 
