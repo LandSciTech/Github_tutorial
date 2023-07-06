@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  title: "Github_tutorial"
-  author: "Jane Doe"
+  title: "Github tutorial"
+  author: "Sarah Endicott"
   date: "2023-06-02"
   chapters:
     - index.qmd
