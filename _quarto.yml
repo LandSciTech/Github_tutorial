@@ -9,6 +9,7 @@ book:
     - index.qmd
     - setup.qmd
     - git-basics.qmd
+    - misc.qmd
     - references.qmd
 
 bibliography: references.bib

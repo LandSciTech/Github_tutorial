@@ -1,5 +1,51 @@
 # Using Git
 
+## Tour of GitHub repository page
+
+https://github.com/LandSciTech/caribouMetrics
+
+### Code
+- Top folder of repo
+- Acts as landing page
+- Displays the readme file
+
+### File on GitHub
+- Can view and edit code on GitHub
+![](assets/img/file.png)
+- History and Blame two different ways to see what has changed over time. 
+![](assets/img/history.png)
+
+![](assets/img/blame.png)
+
+### Viewing a commit
+- Shows all files changed and highlights which parts changed
+![](assets/img/view_commit.png)
+- Works for images too!
+![](assets/img/view_commit_img.png)
+
+### Issues
+A place for tracking things that need to get done or reporting bugs or unexpected results
+
+- Can be submitted by anyone with access to the repo
+- Once they are dealt with they can be closed but are still kept
+- If you are reporting a bug it is key to have a [minimum reproducible example](https://stackoverflow.com/a/5963610/3277050) 
+so others can see what you are seeing and try to help
+- anywhere else on GitHub if you type # and then the issue number it will 
+automatically link to the issue. In a commit message this will link the commit
+to the issue so you can see what was changed to address it. Example [here](https://github.com/LandSciTech/caribouMetrics/issues/97).
+
+### Settings
+Repository options and settings. There are a lot of complex options but the most
+beginner relevant are: 
+
+- Changing repository visibility: Bottom of General section, usually changing to
+public once far enough along
+- Deleting repository: Bottom of General section, no going back, consider archiving
+if it is just out of date
+- Adding collaborators: under Access > Collaborators and teams, click add people
+and type their GitHub user name.
+
+
 ## Git Terminology 1
 
 - Repository (repo): Folder that contains a hidden .git file that tracks
@@ -8,7 +54,7 @@
   also the web page where all the files are stored among other things
 - Push: Copy changes from your local version of the repo to the GitHub
   version
-- Pull: Copy changes from the GitHub version of the repo to you local
+- Pull: Copy changes from the GitHub version of the repo to your local
   version
 - Clone: make a copy of a git repository. By default in R studio this is
   connected to the GitHub version (called the remote or origin)
@@ -69,7 +115,6 @@
 - Good practice to pull before pushing but git will normally warn you if you forget.
 
 
-
 ## Merge conflicts in Push/Pull
 
 - If a collaborator pushed their changes after you last pulled you will
@@ -78,7 +123,6 @@
 - Merge conflicts: when a collaborator made changes that overlap your
   changes. Git can’t automatically fit them together you have to review
   and pick the part to keep.
-
 
 
 ## Resolving merge conflicts
@@ -124,13 +168,28 @@ conflicts. Pick the one you want and delete all the marker lines
 - See <https://happygitwithr.com/git-branches.html##git-branches> for how
   to manage branches with the command line but it can also be done
   through the Rstudio IDE and GitHub for the most part.
+  
+### Make a new branch in RStudio
+- Click New Branch in the Git pane
+![](assets/img/new_branch.png)
+- Give it a name using dashes or underscores for spaces and no special characters. 
+  The "Remote" is the GitHub version of the repository, almost always leave the default.
+  "Sync branch with remote" will also create the branch on GitHub which we typically want.
+  Click "Create"
+  
+![](assets/img/new_branch_name.png)
+
+- Make a change, save, commit and push as usual. 
+- To change back to the main branch click the dropdown beside the "New Branch" 
+button and under "Local Branches" select "main".
+![](assets/img/change_branch.png)
+
+  
+- Branches don't really prevent merge conflicts. If the same parts of the code 
+  are changed in the main branch and your new branch you have to decide manually 
+  which one to keep by resolving the merge conflicts. But they do allow you to 
+  decide when you want to deal with reconciling your branch and the main branch
+  so you can be more intentional about it.
 
 
-
-## Tour of GitHub repository page
-
-- Code
-- Issues
-- Wiki
-- Settings
 

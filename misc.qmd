@@ -1,0 +1,25 @@
+# Miscellaneous tips and tricks
+
+
+## Easy Extensions
+
+- Making a repo work like a simple website
+  <https://happygitwithr.com/workflows-browsability.html##workflows-browsability>
+- Installing a Git Client
+  <https://happygitwithr.com/git-client.html##git-client>
+- Good default folder structure and setup for a typical analysis
+  project: <https://frbcesab.github.io/rcompendium/index.html>
+
+
+
+## Advanced Uses
+
+- Host a website:
+  <https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html>
+- Use GitHub Actions for continuous integration:
+  <https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/>
+- Using GitHub to manage frequently updated data:
+  - <https://doi.org/10.1371/journal.pbio.3000125>  
+  - <https://www.updatingdata.org/githubactions/>
+  - <https://doi.org/10.1111/2041-210X.13982>
+
