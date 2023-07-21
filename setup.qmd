@@ -36,8 +36,9 @@
 
 ## Start a new project with GitHub
 
-**Step 1**: Make a new repo on GitHub + Go to <https://github.com> and
-make sure you are logged in. 
+**Step 1**: Make a new repo on GitHub 
+
++ Go to <https://github.com> and make sure you are logged in. 
 
 + Near “Repositories”, click the big green “New” button.
   - How to fill this in:
@@ -50,8 +51,9 @@ make sure you are logged in.
     - Initialize this repository with: Add a README file.
     - Click the big green button that says “Create repository”.
 
-**Step 2**: Copy repo URL + Now click the big green button that says
-“\<\> Code”. 
+**Step 2**: Copy repo URL 
+
++ Now click the big green button that says “\<\> Code”. 
 
 + Copy a clone URL to your clipboard. Use the HTTPS URL.
 
@@ -86,7 +88,7 @@ make sure you are logged in.
 
 
 
-## Sync changes to GitHub: Push
+### Sync changes to GitHub: Push
 
  + Click “Push” in the Rstudio Git pane
  + Look at the repo on GitHub so see the new line is there
@@ -95,7 +97,7 @@ make sure you are logged in.
 
 
 
-## Sync local copy from GitHub: Pull
+### Sync local copy from GitHub: Pull
 
 + In the GitHub repo main page  
 + In the upper right corner of the Readme, click on the pencil 

@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./git-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Using Git</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Using Git and GitHub</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,12 +142,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#set-username-and-email-for-git" id="toc-set-username-and-email-for-git" class="nav-link" data-scroll-target="#set-username-and-email-for-git"><span class="header-section-number">1.2</span> Set username and email for git</a></li>
   <li><a href="#let-git-talk-to-github" id="toc-let-git-talk-to-github" class="nav-link" data-scroll-target="#let-git-talk-to-github"><span class="header-section-number">1.3</span> Let git talk to GitHub</a></li>
   <li><a href="#start-a-new-project-with-github" id="toc-start-a-new-project-with-github" class="nav-link" data-scroll-target="#start-a-new-project-with-github"><span class="header-section-number">1.4</span> Start a new project with GitHub</a></li>
-  <li><a href="#work-on-a-project" id="toc-work-on-a-project" class="nav-link" data-scroll-target="#work-on-a-project"><span class="header-section-number">1.5</span> Work on a project</a></li>
-  <li><a href="#sync-changes-to-github-push" id="toc-sync-changes-to-github-push" class="nav-link" data-scroll-target="#sync-changes-to-github-push"><span class="header-section-number">1.6</span> Sync changes to GitHub: Push</a></li>
-  <li><a href="#sync-local-copy-from-github-pull" id="toc-sync-local-copy-from-github-pull" class="nav-link" data-scroll-target="#sync-local-copy-from-github-pull"><span class="header-section-number">1.7</span> Sync local copy from GitHub: Pull</a></li>
-  <li><a href="#add-an-existing-project-to-github" id="toc-add-an-existing-project-to-github" class="nav-link" data-scroll-target="#add-an-existing-project-to-github"><span class="header-section-number">1.8</span> Add an existing project to GitHub</a></li>
-  <li><a href="#issues-with-installation" id="toc-issues-with-installation" class="nav-link" data-scroll-target="#issues-with-installation"><span class="header-section-number">1.9</span> Issues with installation</a></li>
-  <li><a href="#git-terminology-summary-1" id="toc-git-terminology-summary-1" class="nav-link" data-scroll-target="#git-terminology-summary-1"><span class="header-section-number">1.10</span> Git terminology summary 1</a></li>
+  <li><a href="#work-on-a-project" id="toc-work-on-a-project" class="nav-link" data-scroll-target="#work-on-a-project"><span class="header-section-number">1.5</span> Work on a project</a>
+  <ul class="collapse">
+  <li><a href="#sync-changes-to-github-push" id="toc-sync-changes-to-github-push" class="nav-link" data-scroll-target="#sync-changes-to-github-push"><span class="header-section-number">1.5.1</span> Sync changes to GitHub: Push</a></li>
+  <li><a href="#sync-local-copy-from-github-pull" id="toc-sync-local-copy-from-github-pull" class="nav-link" data-scroll-target="#sync-local-copy-from-github-pull"><span class="header-section-number">1.5.2</span> Sync local copy from GitHub: Pull</a></li>
+  </ul></li>
+  <li><a href="#add-an-existing-project-to-github" id="toc-add-an-existing-project-to-github" class="nav-link" data-scroll-target="#add-an-existing-project-to-github"><span class="header-section-number">1.6</span> Add an existing project to GitHub</a></li>
+  <li><a href="#issues-with-installation" id="toc-issues-with-installation" class="nav-link" data-scroll-target="#issues-with-installation"><span class="header-section-number">1.7</span> Issues with installation</a></li>
+  <li><a href="#git-terminology-summary-1" id="toc-git-terminology-summary-1" class="nav-link" data-scroll-target="#git-terminology-summary-1"><span class="header-section-number">1.8</span> Git terminology summary 1</a></li>
   </ul>
 </nav>
     </div>
@@ -211,9 +213,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="start-a-new-project-with-github" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="start-a-new-project-with-github"><span class="header-section-number">1.4</span> Start a new project with GitHub</h2>
-<p><strong>Step 1</strong>: Make a new repo on GitHub + Go to <a href="https://github.com" class="uri">https://github.com</a> and make sure you are logged in.</p>
+<p><strong>Step 1</strong>: Make a new repo on GitHub</p>
 <ul>
-<li>Near “Repositories”, click the big green “New” button.
+<li><p>Go to <a href="https://github.com" class="uri">https://github.com</a> and make sure you are logged in.</p></li>
+<li><p>Near “Repositories”, click the big green “New” button.</p>
 <ul>
 <li>How to fill this in:
 <ul>
@@ -226,9 +229,10 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul></li>
 </ul>
-<p><strong>Step 2</strong>: Copy repo URL + Now click the big green button that says “&lt;&gt; Code”.</p>
+<p><strong>Step 2</strong>: Copy repo URL</p>
 <ul>
-<li>Copy a clone URL to your clipboard. Use the HTTPS URL.</li>
+<li><p>Now click the big green button that says “&lt;&gt; Code”.</p></li>
+<li><p>Copy a clone URL to your clipboard. Use the HTTPS URL.</p></li>
 </ul>
 <p><img src="assets/img/clone_url.png" class="img-fluid"></p>
 <p><strong>Step 3</strong>: Clone into a new project in RStudio</p>
@@ -256,17 +260,16 @@ ul.task-list li input[type="checkbox"] {
 <li>Check the “Staged” box and type a commit message and click “Commit”</li>
 </ul>
 <p><img src="assets/img/git_commit_modal.png" class="img-fluid"></p>
-</section>
-<section id="sync-changes-to-github-push" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="sync-changes-to-github-push"><span class="header-section-number">1.6</span> Sync changes to GitHub: Push</h2>
+<section id="sync-changes-to-github-push" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="sync-changes-to-github-push"><span class="header-section-number">1.5.1</span> Sync changes to GitHub: Push</h3>
 <ul>
 <li>Click “Push” in the Rstudio Git pane</li>
 <li>Look at the repo on GitHub so see the new line is there</li>
 </ul>
 <p><img src="assets/img/push.png" class="img-fluid"></p>
 </section>
-<section id="sync-local-copy-from-github-pull" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="sync-local-copy-from-github-pull"><span class="header-section-number">1.7</span> Sync local copy from GitHub: Pull</h2>
+<section id="sync-local-copy-from-github-pull" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="sync-local-copy-from-github-pull"><span class="header-section-number">1.5.2</span> Sync local copy from GitHub: Pull</h3>
 <ul>
 <li>In the GitHub repo main page<br>
 </li>
@@ -278,8 +281,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><img src="assets/img/pull.png" class="img-fluid"></p>
 </section>
-<section id="add-an-existing-project-to-github" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="add-an-existing-project-to-github"><span class="header-section-number">1.8</span> Add an existing project to GitHub</h2>
+</section>
+<section id="add-an-existing-project-to-github" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="add-an-existing-project-to-github"><span class="header-section-number">1.6</span> Add an existing project to GitHub</h2>
 <ul>
 <li>Create a new repo and Rstudio project in the same way as above</li>
 <li>Simply copy all files into the newly created folder on your local computer</li>
@@ -292,13 +296,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><em>This is the simplest way to do it but there are more advanced, more traditional git ways to do it: <a href="https://happygitwithr.com/existing-github-last.html" class="uri">https://happygitwithr.com/existing-github-last.html</a></em></p>
 </section>
-<section id="issues-with-installation" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="issues-with-installation"><span class="header-section-number">1.9</span> Issues with installation</h2>
+<section id="issues-with-installation" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="issues-with-installation"><span class="header-section-number">1.7</span> Issues with installation</h2>
 <p>If RStudio is not finding a git installation: + Restart RStudio and try again + If still not working, run this in the windows command line: <code>git --exec-path</code> + Copy the path, then in RStudio click Tools &gt; Global Options &gt; Git/SVN and set the Git executable by clicking browse, pasting the path in the address bar and selecting the git.exe file. + Restart RStudio again</p>
 <p>See <a href="https://happygitwithr.com/rstudio-see-git.html" class="uri">https://happygitwithr.com/rstudio-see-git.html</a> for more instructions on troubleshooting</p>
 </section>
-<section id="git-terminology-summary-1" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="git-terminology-summary-1"><span class="header-section-number">1.10</span> Git terminology summary 1</h2>
+<section id="git-terminology-summary-1" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="git-terminology-summary-1"><span class="header-section-number">1.8</span> Git terminology summary 1</h2>
 <ul>
 <li>Repository (repo): Folder that contains a hidden .git file that tracks changes made to files in that folder. The folder can “live” on your local computer or a server like GitHub’s. On GitHub the repository is also the web page where all the files are stored among other things</li>
 <li>Push: Copy changes from your local version of the repo to the GitHub version</li>
@@ -552,7 +556,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./git-basics.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Using Git</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Using Git and GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

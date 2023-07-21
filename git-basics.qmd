@@ -1,4 +1,4 @@
-# Using Git
+# Using Git and GitHub
 
 ## Tour of GitHub repository
 
@@ -6,25 +6,28 @@
 
 ### Code
 
--   Top folder of repo
--   Acts as landing page
--   Displays the readme file
+-   Top folder of repo.
+-   Acts as landing page.
+-   Displays the readme file.
 
 ### File on GitHub
 
--   Can view and edit code on GitHub
+-   Can view and edit code on GitHub.
 
 ![](assets/img/file.png)
 
--   History and Blame two different ways to see what has changed over time.
+-   Can see what has changed over time.
+-   History shows all commits that have affected the file.
 
 ![](assets/img/history.png)
+
+-   Blame shows for each line, who last edited, when, and the commit message.
 
 ![](assets/img/blame.png)
 
 ### Viewing a commit
 
--   Shows all files changed and highlights which parts changed
+-   Shows all files changed and highlights which parts changed.
 
 ![](assets/img/view_commit.png)
 
@@ -34,13 +37,19 @@
 
 ### Issues
 
-A place for tracking things that need to get done or reporting bugs or unexpected results
+A place for tracking things that need to get done or reporting bugs or
+unexpected results.
 
 -   Can be submitted by anyone with access to the repo.
 -   Once they are dealt with they can be closed but are still kept.
--   If you are reporting a bug it is key to have a [minimum reproducible example](https://stackoverflow.com/a/5963610/3277050) so others can see what you are seeing and try to help.
--   anywhere else on GitHub if you type \# and then the issue number it will automatically link to the issue. In a commit message this will link the commit to the issue so you can see what was changed to address it. Example [here](https://github.com/LandSciTech/caribouMetrics/issues/97).
--   Issues can also be used for To-do lists or project planning and can be tagged with a certain category or assigned to specific users.
+-   If you are reporting a bug it is key to have a [minimum reproducible example](https://stackoverflow.com/a/5963610/3277050) 
+so others can see what you are seeing and try to help.
+-   anywhere else on GitHub if you type \# and then the issue number it will
+automatically link to the issue. In a commit message this will link the commit
+to the issue so you can see what was changed to address it. Example
+[here](https://github.com/LandSciTech/caribouMetrics/issues/97).
+-   Issues can also be used for To-do lists or project planning and can be 
+tagged with a certain category or assigned to specific users.
 
 ### Settings
 
@@ -57,7 +66,10 @@ Repository options and settings. There are a lot of complex options but the most
 -   <https://github.com/PredictiveEcology>
 -   <https://github.com/na-pops>
 
-## When to commit
+
+## Daily Git Usage
+
+### When to commit
 
 -   Often!
 -   But not too often!
@@ -68,7 +80,7 @@ Repository options and settings. There are a lot of complex options but the most
     -   `Fix bug in data cleaning handling of dates`
     -   `Update exploratory plots with dates`
 
-## What to commit
+### What to commit
 
 -   Everything!
     -   Git can track any file but it does a better job with raw text files (eg: .R, .Rmd, .html, .md, .py, .sh, .txt)
@@ -80,25 +92,25 @@ Repository options and settings. There are a lot of complex options but the most
     -   Uses regular expressions to match file or folder names or types.
     -   Example file: <https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore>
 
-## When to push
+### When to push
 
 -   Fairly often. If you are working alone pushing is a way to back up your files. If you are collaborating it is a way to make your work available to others. If you don't push and then a collaborator makes changes to the same file it gets a bit tricky (but fixable).
 -   Once you push you can't use the "Amend previous commit" trick
 -   If you find yourself reluctant to push because you aren't ready for others to use your work consider making a branch (see below)
 
-## When to pull
+### When to pull
 
 -   Ideally every day, or when a collaborator lets you know they pushed
 -   Pulling often prevents getting out of sync with collaborators
 -   Before pulling be sure to commit all your local work
 -   Good practice to pull before pushing but git will normally warn you if you forget.
 
-## Merge conflicts in Push/Pull
+### Merge conflicts in Push/Pull
 
 -   If a collaborator pushed their changes after you last pulled you will need to pull before you can push. If your changes don't conflict git will automatically merge their changes with yours.
 -   Merge conflicts: when a collaborator made changes that overlap your changes. Git can't automatically fit them together you have to review and pick the part to keep.
 
-## Resolving merge conflicts
+### Resolving merge conflicts
 
 This is a typical scenario with a merge conflict: "Ah! I pulled at the start of the day but then a collaborator pushed a change to the same line and now when I try to push it says I have to pull first."
 
@@ -110,20 +122,22 @@ This is a typical scenario with a merge conflict: "Ah! I pulled at the start of 
 
 Not too hard to fix. Go through each file that has the orange U in the Git pane. Find the location of the conflict. HEAD is your local version and the alphanumeric string is the commit id for the remote version that conflicts. Pick the one you want and delete all the marker lines (\<\<\<, === and \>\>\>). Then commit and continue on with your work.
 
-## Avoiding merge conflicts
+### Avoiding merge conflicts
 
 -   Pull regularly
 -   Keep in touch with collaborators so you are not working on the same lines at the same time.
 -   Use a branch
 
-## Branches
+## Tools for Collaboration
+
+### Branches
 
 -   A stream of commits that diverges from the main stream until it is ready to re-join.
 -   Helpful for starting a new version of something while making sure others can keep using the old version
 -   Example we want to convert some functions used in a paper to become an R package but Josie is working on writing the paper and needs the old version to keep working. I make a branch where I re-arrange everything into a package. If Josie makes changes to the main branch that affect the functions I can see those and merge them into my branch.
 -   See [https://happygitwithr.com/git-branches.html##git-branches](https://happygitwithr.com/git-branches.html##git-branches){.uri} for how to manage branches with the command line but it can also be done through the Rstudio IDE and GitHub for the most part.
 
-### Make a new branch in RStudio
+#### Make a new branch in RStudio
 
 -   Click New Branch in the Git pane
 
@@ -138,7 +152,7 @@ Not too hard to fix. Go through each file that has the orange U in the Git pane.
 
 ![](assets/img/change_branch.png)
 
-### Merge the branch back into main with a Pull Request
+#### Merge the branch back into main with a Pull Request
 
 -   Once you are ready to incorporate the changes in your branch back into the main code stream you and merge your branch with the main branch.
 -   The easiest way to do that is on GitHub. Once you have made commits on your branch and pushed go to the repo on GitHub
@@ -152,7 +166,7 @@ Not too hard to fix. Go through each file that has the orange U in the Git pane.
 -   If there are no merge conflicts and you have the authority to commit to the repos main branch you can click "Merge pull request" to merge your branch with main branch. Then you can delete the branch if it is no longer needed. On your local Rstudio session you will need to change back to the main branch and pull so that the changes are reflected in your local copy of the main branch.
 -   Branches don't really prevent merge conflicts. But they do allow you to decide when you want to deal with reconciling your branch and the main branch so you can be more intentional about it. If the same parts of the code are changed in the main branch and your new branch you have to decide manually which one to keep by resolving the merge conflicts as described above. GitHub provides an editor to resolve conflicts online. In some situations the conflicts are too complex to resolve online and the merge must be done from the command line. GitHub provides instructions if this happens.
 
-### Merge changes from main into your branch
+#### Merge changes from main into your branch
 
 -   Sometimes changes are made in main (or any other branch) that you want to include in your branch without incorporating the changes in your branch into main
 -   To do this you merge the main branch with yours. On GitHub if you go to your branch and click the "This branch is x commits behind main" url it will open a PR for merging main into your branch.
@@ -165,7 +179,7 @@ Not too hard to fix. Go through each file that has the orange U in the Git pane.
 
 ![](assets/img/merge_cmd.png)
 
-## Forks
+### Forks
 
 -   A fork is a copy of another repository which is used to contribute to an open source project that you do not have permission to edit, or to simply make a copy and edit as you wish from there but with an acknowledgement that you used another repo as a starting point.
 
@@ -179,7 +193,7 @@ usethis::create_from_github(
 )
 ```
 
-## Git terminology summary 2
+## Git Terminology Summary 2
 
 -   Merge: Combine two versions of a file. These can be the local and GitHub (remote) copies or two different branches.
 -   Conflict: When merging can't be done automatically because two versions of the code have edited the same part of a file.
