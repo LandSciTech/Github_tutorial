@@ -1,4 +1,4 @@
 # References {.unnumbered}
-
+[Happy Git and GitHub for the useR](https://happygitwithr.com/index.html) by Jennifer Bryan
 ::: {#refs}
 :::
