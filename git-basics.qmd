@@ -1,135 +1,106 @@
 # Using Git
 
-## Tour of GitHub repository page
+## Tour of GitHub repository
 
-https://github.com/LandSciTech/caribouMetrics
+<https://github.com/LandSciTech/caribouMetrics>
 
 ### Code
-- Top folder of repo
-- Acts as landing page
-- Displays the readme file
+
+-   Top folder of repo
+-   Acts as landing page
+-   Displays the readme file
 
 ### File on GitHub
-- Can view and edit code on GitHub
+
+-   Can view and edit code on GitHub
+
 ![](assets/img/file.png)
-- History and Blame two different ways to see what has changed over time. 
+
+-   History and Blame two different ways to see what has changed over time.
+
 ![](assets/img/history.png)
 
 ![](assets/img/blame.png)
 
 ### Viewing a commit
-- Shows all files changed and highlights which parts changed
+
+-   Shows all files changed and highlights which parts changed
+
 ![](assets/img/view_commit.png)
-- Works for images too!
+
+-   Works for images too!
+
 ![](assets/img/view_commit_img.png)
 
 ### Issues
+
 A place for tracking things that need to get done or reporting bugs or unexpected results
 
-- Can be submitted by anyone with access to the repo
-- Once they are dealt with they can be closed but are still kept
-- If you are reporting a bug it is key to have a [minimum reproducible example](https://stackoverflow.com/a/5963610/3277050) 
-so others can see what you are seeing and try to help
-- anywhere else on GitHub if you type # and then the issue number it will 
-automatically link to the issue. In a commit message this will link the commit
-to the issue so you can see what was changed to address it. Example [here](https://github.com/LandSciTech/caribouMetrics/issues/97).
+-   Can be submitted by anyone with access to the repo.
+-   Once they are dealt with they can be closed but are still kept.
+-   If you are reporting a bug it is key to have a [minimum reproducible example](https://stackoverflow.com/a/5963610/3277050) so others can see what you are seeing and try to help.
+-   anywhere else on GitHub if you type \# and then the issue number it will automatically link to the issue. In a commit message this will link the commit to the issue so you can see what was changed to address it. Example [here](https://github.com/LandSciTech/caribouMetrics/issues/97).
+-   Issues can also be used for To-do lists or project planning and can be tagged with a certain category or assigned to specific users.
 
 ### Settings
-Repository options and settings. There are a lot of complex options but the most
-beginner relevant are: 
 
-- Changing repository visibility: Bottom of General section, usually changing to
-public once far enough along
-- Deleting repository: Bottom of General section, no going back, consider archiving
-if it is just out of date
-- Adding collaborators: under Access > Collaborators and teams, click add people
-and type their GitHub user name.
+Repository options and settings. There are a lot of complex options but the most beginner relevant are:
 
+-   Changing repository visibility: Bottom of General section, usually changing to public once far enough along
+-   Deleting repository: Bottom of General section, no going back, consider archiving if it is just out of date
+-   Adding collaborators: under Access \> Collaborators and teams, click add people and type their GitHub user name. Only needed for private repositories
 
-## Git Terminology 1
+### GitHub Organiztions
 
-- Repository (repo): Folder that contains a hidden .git file that tracks
-  changes made to files in that folder. The folder can “live” on your
-  local computer or a server like GitHub’s. On GitHub the repository is
-  also the web page where all the files are stored among other things
-- Push: Copy changes from your local version of the repo to the GitHub
-  version
-- Pull: Copy changes from the GitHub version of the repo to your local
-  version
-- Clone: make a copy of a git repository. By default in R studio this is
-  connected to the GitHub version (called the remote or origin)
-- Commit: A marker that is kept in the git history and helps to
-  incrementally track changes. Made useful by descriptive commit
-  messages
-
-
+-   You can create an organization to group repos together and manage collaborators. For example:
+-   <https://github.com/LandSciTech>
+-   <https://github.com/PredictiveEcology>
+-   <https://github.com/na-pops>
 
 ## When to commit
 
-- Often!
-- But not too often!
-  - Use “Amend previous commit” checkbox when you want to make sure to
-    commit but aren’t sure you are done yet
-- Try to make each commit distinct and accomplish one thing. eg:
-  - `Make data cleaning script`
-  - `Create exploratory plots`
-  - `Fix bug in data cleaning handling of dates`
-  - `Update exploratory plots with dates`
-
-
+-   Often!
+-   But not too often!
+    -   Use "Amend previous commit" checkbox when you want to make sure to commit but aren't sure you are done yet
+-   Try to make each commit distinct and accomplish one thing. eg:
+    -   `Make data cleaning script`
+    -   `Create exploratory plots`
+    -   `Fix bug in data cleaning handling of dates`
+    -   `Update exploratory plots with dates`
 
 ## What to commit
 
-- Everything!
-  - Git can track any file but it does a better job with raw text files
-    (eg: .R, .Rmd, .html, .md, .py, .sh, .txt)
-  - For files like word docs or pdfs it can’t track the content and
-    tracks the whole file every time you make a change
-- Except!:
-  - Nothing sensitive ie passwords, keys etc (you can have a private
-    repo if you are not ready to share code with the world but still don't store passwords)
-  - Probably not large datasets. I just keep these locally but would be
-    better to have them on a shared drive and download them
-    programmatically
-- .gitignore: a file at the top level of git repo that tells git what
-  not to track.
-  - Uses regular expressions to match file or folder names or types.
-  - Example file:
-    <https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore>
+-   Everything!
+    -   Git can track any file but it does a better job with raw text files (eg: .R, .Rmd, .html, .md, .py, .sh, .txt)
+    -   For files like word docs or pdfs it can't track the content and tracks the whole file every time you make a change
+-   Except!:
+    -   Nothing sensitive ie passwords, keys etc (you can have a private repo if you are not ready to share code with the world but still don't store passwords)
+    -   Probably not large datasets. I just keep these locally but would be better to have them on a shared drive and download them programmatically
+-   .gitignore: a file at the top level of git repo that tells git what not to track.
+    -   Uses regular expressions to match file or folder names or types.
+    -   Example file: <https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore>
 
 ## When to push
-- Fairly often. If you are working alone pushing is a way to back up
-  your files. If you are collaborating it is a way to make your work
-  available to others. If you don’t push and then a collaborator makes
-  changes to the same file it gets a bit tricky (but fixable).
-- Once you push you can’t use the “Amend previous commit” trick
-- If you find yourself reluctant to push because you aren’t ready for
-  others to use your work consider making a branch (see below)
 
+-   Fairly often. If you are working alone pushing is a way to back up your files. If you are collaborating it is a way to make your work available to others. If you don't push and then a collaborator makes changes to the same file it gets a bit tricky (but fixable).
+-   Once you push you can't use the "Amend previous commit" trick
+-   If you find yourself reluctant to push because you aren't ready for others to use your work consider making a branch (see below)
 
 ## When to pull
 
-- Ideally every day, or when a collaborator lets you know they pushed
-- Pulling often prevents getting out of sync with collaborators
-- Before pulling be sure to commit all your local work
-- Good practice to pull before pushing but git will normally warn you if you forget.
-
+-   Ideally every day, or when a collaborator lets you know they pushed
+-   Pulling often prevents getting out of sync with collaborators
+-   Before pulling be sure to commit all your local work
+-   Good practice to pull before pushing but git will normally warn you if you forget.
 
 ## Merge conflicts in Push/Pull
 
-- If a collaborator pushed their changes after you last pulled you will
-  need to pull before you can push. If your changes don’t conflict git
-  will automatically merge their changes with yours.
-- Merge conflicts: when a collaborator made changes that overlap your
-  changes. Git can’t automatically fit them together you have to review
-  and pick the part to keep.
-
+-   If a collaborator pushed their changes after you last pulled you will need to pull before you can push. If your changes don't conflict git will automatically merge their changes with yours.
+-   Merge conflicts: when a collaborator made changes that overlap your changes. Git can't automatically fit them together you have to review and pick the part to keep.
 
 ## Resolving merge conflicts
-This is a typical scenario with a merge conflict:
-"Ah! I pulled at the start of the day but then a collaborator pushed a
-change to the same line and now when I try to push it says I have to
-pull first."  
+
+This is a typical scenario with a merge conflict: "Ah! I pulled at the start of the day but then a collaborator pushed a change to the same line and now when I try to push it says I have to pull first."
 
 ![](assets/img/push_fail.PNG)
 
@@ -137,59 +108,81 @@ pull first."
 
 ![](assets/img/merge_conflict.png)
 
-Not too hard to fix. Go through each file that has the orange U in the
-Git pane. Find the location of the conflict. HEAD is your local version
-and the alphanumeric string is the commit id for the remote version that
-conflicts. Pick the one you want and delete all the marker lines
-(\<\<\<, === and \>\>\>). Then commit and continue on with your work.
-
-
+Not too hard to fix. Go through each file that has the orange U in the Git pane. Find the location of the conflict. HEAD is your local version and the alphanumeric string is the commit id for the remote version that conflicts. Pick the one you want and delete all the marker lines (\<\<\<, === and \>\>\>). Then commit and continue on with your work.
 
 ## Avoiding merge conflicts
 
-- Pull regularly
-- Keep in touch with collaborators so you are not working on the same
-  lines at the same time.
-- Use a branch
-
-
+-   Pull regularly
+-   Keep in touch with collaborators so you are not working on the same lines at the same time.
+-   Use a branch
 
 ## Branches
 
-- A stream of commits that diverges from the main stream until it is
-  ready to re-join.
-- Helpful for starting a new version of something while making sure
-  others can keep using the old version
-- Example we want to convert some functions used in a paper to become an
-  R package but Josie is working on writing the paper and needs the old
-  version to keep working. I make a branch where I re-arrange everything
-  into a package. If Josie makes changes to the main branch that affect
-  the functions I can see those and merge them into my branch.
-- See <https://happygitwithr.com/git-branches.html##git-branches> for how
-  to manage branches with the command line but it can also be done
-  through the Rstudio IDE and GitHub for the most part.
-  
+-   A stream of commits that diverges from the main stream until it is ready to re-join.
+-   Helpful for starting a new version of something while making sure others can keep using the old version
+-   Example we want to convert some functions used in a paper to become an R package but Josie is working on writing the paper and needs the old version to keep working. I make a branch where I re-arrange everything into a package. If Josie makes changes to the main branch that affect the functions I can see those and merge them into my branch.
+-   See [https://happygitwithr.com/git-branches.html##git-branches](https://happygitwithr.com/git-branches.html##git-branches){.uri} for how to manage branches with the command line but it can also be done through the Rstudio IDE and GitHub for the most part.
+
 ### Make a new branch in RStudio
-- Click New Branch in the Git pane
+
+-   Click New Branch in the Git pane
+
 ![](assets/img/new_branch.png)
-- Give it a name using dashes or underscores for spaces and no special characters. 
-  The "Remote" is the GitHub version of the repository, almost always leave the default.
-  "Sync branch with remote" will also create the branch on GitHub which we typically want.
-  Click "Create"
-  
+
+-   Give it a name using dashes or underscores for spaces and no special characters. The "Remote" is the GitHub version of the repository, almost always leave the default. "Sync branch with remote" will also create the branch on GitHub which we typically want. Click "Create"
+
 ![](assets/img/new_branch_name.png)
 
-- Make a change, save, commit and push as usual. 
-- To change back to the main branch click the dropdown beside the "New Branch" 
-button and under "Local Branches" select "main".
+-   Make a change, save, commit and push as usual.
+-   To change back to the main branch click the dropdown beside the "New Branch" button and under "Local Branches" select "main". In git this is called "checking out" the branch.
+
 ![](assets/img/change_branch.png)
 
-  
-- Branches don't really prevent merge conflicts. If the same parts of the code 
-  are changed in the main branch and your new branch you have to decide manually 
-  which one to keep by resolving the merge conflicts. But they do allow you to 
-  decide when you want to deal with reconciling your branch and the main branch
-  so you can be more intentional about it.
+### Merge the branch back into main with a Pull Request
 
+-   Once you are ready to incorporate the changes in your branch back into the main code stream you and merge your branch with the main branch.
+-   The easiest way to do that is on GitHub. Once you have made commits on your branch and pushed go to the repo on GitHub
+-   On the GitHub repo page select the new branch from the drop down, then click Contribute \> Open pull request
 
+![](assets/img/make_PR.png)
 
+-   You can give the pull request a descriptive name and add comments to explain what your are trying to do or link to issues that are being addressed. Then create the pull request.
+-   The pull request (PR) is a page that summarizes the changes you propose to make to the main branch. It includes the list of commits in the branch since it diverged from main and the diffs for files that have changed. Collaborators can leave comments on the PR and discuss it or add new commits before it is merged.
+-   PRs are the main way you can contribute to open source projects, and in that case the owner of the project will get the final decision whether to merge your changes into the main branch.
+-   If there are no merge conflicts and you have the authority to commit to the repos main branch you can click "Merge pull request" to merge your branch with main branch. Then you can delete the branch if it is no longer needed. On your local Rstudio session you will need to change back to the main branch and pull so that the changes are reflected in your local copy of the main branch.
+-   Branches don't really prevent merge conflicts. But they do allow you to decide when you want to deal with reconciling your branch and the main branch so you can be more intentional about it. If the same parts of the code are changed in the main branch and your new branch you have to decide manually which one to keep by resolving the merge conflicts as described above. GitHub provides an editor to resolve conflicts online. In some situations the conflicts are too complex to resolve online and the merge must be done from the command line. GitHub provides instructions if this happens.
+
+### Merge changes from main into your branch
+
+-   Sometimes changes are made in main (or any other branch) that you want to include in your branch without incorporating the changes in your branch into main
+-   To do this you merge the main branch with yours. On GitHub if you go to your branch and click the "This branch is x commits behind main" url it will open a PR for merging main into your branch.
+
+![](assets/img/update_branch_PR.png)
+
+-   A PR is often unnecessary for merging main into your branch, because most times your collaborators don't need to know about it. To avoid this you can use the command line to do the merge.
+-   In RStudio on the Console pane click the Terminal tab. This will open a command line where you can type git commands.
+-   Make sure you are in your branch that you want to merge into. Then type: `git merge main`
+
+![](assets/img/merge_cmd.png)
+
+## Forks
+
+-   A fork is a copy of another repository which is used to contribute to an open source project that you do not have permission to edit, or to simply make a copy and edit as you wish from there but with an acknowledgement that you used another repo as a starting point.
+
+-   you can create a fork on GitHub by clicking the fork button in the top right of all GitHub repos or with the usethis command below which will also set up useful default settings. See [here](https://happygitwithr.com/fork-and-clone.html#fork-and-clone-create-from-github) for more details.
+
+``` r
+usethis::create_from_github(
+  "https://github.com/OWNER/REPO",
+  destdir = "~/path/to/where/you/want/the/local/repo/",
+  fork = TRUE
+)
+```
+
+## Git terminology summary 2
+
+-   Merge: Combine two versions of a file. These can be the local and GitHub (remote) copies or two different branches.
+-   Conflict: When merging can't be done automatically because two versions of the code have edited the same part of a file.
+-   Branch: A copy of the code that you want to keep separate from the main code at least for a time.
+-   Pull request: A special GitHub page that shows what will be added to the main branch when another branch is merged.
+-   Fork: A copy of a repository that you don't own. Used for contributing to open source projects.

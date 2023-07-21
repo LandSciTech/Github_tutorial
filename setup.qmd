@@ -136,3 +136,19 @@ and selecting the git.exe file.
 
 See <https://happygitwithr.com/rstudio-see-git.html> for more
 instructions on troubleshooting
+
+## Git terminology summary 1
+
+- Repository (repo): Folder that contains a hidden .git file that tracks
+  changes made to files in that folder. The folder can “live” on your
+  local computer or a server like GitHub’s. On GitHub the repository is
+  also the web page where all the files are stored among other things
+- Push: Copy changes from your local version of the repo to the GitHub
+  version
+- Pull: Copy changes from the GitHub version of the repo to your local
+  version
+- Clone: make a copy of a git repository. By default in R studio this is
+  connected to the GitHub version (called the remote or origin)
+- Commit: A marker that is kept in the git history and helps to
+  incrementally track changes. Made useful by descriptive commit
+  messages
