@@ -130,6 +130,9 @@ Not too hard to fix. Go through each file that has the orange U in the Git pane.
 
 ## Tools for Collaboration
 
+### Write good code
+Writing good code with a consistent style, literate naming and comments to explain decisions goes a long way to improving collaboration. It is also required that your code runs on your collaborators computer without significant modifications. See the [LandSciTech/R-Resources Wiki](https://github.com/LandSciTech/R-Resources/wiki/Minimum-requirements-for-%22good%22-code) for some ideas on how to write good code. 
+
 ### Branches
 
 -   A stream of commits that diverges from the main stream until it is ready to re-join.

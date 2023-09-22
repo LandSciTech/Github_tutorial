@@ -194,8 +194,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#tools-for-collaboration" id="toc-tools-for-collaboration" class="nav-link" data-scroll-target="#tools-for-collaboration"><span class="header-section-number">2.3</span> Tools for Collaboration</a>
   <ul class="collapse">
-  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches"><span class="header-section-number">2.3.1</span> Branches</a></li>
-  <li><a href="#forks" id="toc-forks" class="nav-link" data-scroll-target="#forks"><span class="header-section-number">2.3.2</span> Forks</a></li>
+  <li><a href="#write-good-code" id="toc-write-good-code" class="nav-link" data-scroll-target="#write-good-code"><span class="header-section-number">2.3.1</span> Write good code</a></li>
+  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches"><span class="header-section-number">2.3.2</span> Branches</a></li>
+  <li><a href="#forks" id="toc-forks" class="nav-link" data-scroll-target="#forks"><span class="header-section-number">2.3.3</span> Forks</a></li>
   </ul></li>
   <li><a href="#git-terminology-summary-2" id="toc-git-terminology-summary-2" class="nav-link" data-scroll-target="#git-terminology-summary-2"><span class="header-section-number">2.4</span> Git Terminology Summary 2</a></li>
   </ul>
@@ -371,16 +372,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="tools-for-collaboration" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="tools-for-collaboration"><span class="header-section-number">2.3</span> Tools for Collaboration</h2>
-<section id="branches" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="branches"><span class="header-section-number">2.3.1</span> Branches</h3>
+<section id="write-good-code" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="write-good-code"><span class="header-section-number">2.3.1</span> Write good code</h3>
+<p>Writing good code with a consistent style, literate naming and comments to explain decisions goes a long way to improving collaboration. It is also required that your code runs on your collaborators computer without significant modifications. See the <a href="https://github.com/LandSciTech/R-Resources/wiki/Minimum-requirements-for-%22good%22-code">LandSciTech/R-Resources Wiki</a> for some ideas on how to write good code.</p>
+</section>
+<section id="branches" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="branches"><span class="header-section-number">2.3.2</span> Branches</h3>
 <ul>
 <li>A stream of commits that diverges from the main stream until it is ready to re-join.</li>
 <li>Helpful for starting a new version of something while making sure others can keep using the old version</li>
 <li>Example we want to convert some functions used in a paper to become an R package but Josie is working on writing the paper and needs the old version to keep working. I make a branch where I re-arrange everything into a package. If Josie makes changes to the main branch that affect the functions I can see those and merge them into my branch.</li>
 <li>See <a href="https://happygitwithr.com/git-branches.html##git-branches" class="uri">https://happygitwithr.com/git-branches.html##git-branches</a> for how to manage branches with the command line but it can also be done through the Rstudio IDE and GitHub for the most part.</li>
 </ul>
-<section id="make-a-new-branch-in-rstudio" class="level4" data-number="2.3.1.1">
-<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="make-a-new-branch-in-rstudio"><span class="header-section-number">2.3.1.1</span> Make a new branch in RStudio</h4>
+<section id="make-a-new-branch-in-rstudio" class="level4" data-number="2.3.2.1">
+<h4 data-number="2.3.2.1" class="anchored" data-anchor-id="make-a-new-branch-in-rstudio"><span class="header-section-number">2.3.2.1</span> Make a new branch in RStudio</h4>
 <ul>
 <li>Click New Branch in the Git pane</li>
 </ul>
@@ -395,8 +400,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><img src="assets/img/change_branch.png" class="img-fluid"></p>
 </section>
-<section id="merge-the-branch-back-into-main-with-a-pull-request" class="level4" data-number="2.3.1.2">
-<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="merge-the-branch-back-into-main-with-a-pull-request"><span class="header-section-number">2.3.1.2</span> Merge the branch back into main with a Pull Request</h4>
+<section id="merge-the-branch-back-into-main-with-a-pull-request" class="level4" data-number="2.3.2.2">
+<h4 data-number="2.3.2.2" class="anchored" data-anchor-id="merge-the-branch-back-into-main-with-a-pull-request"><span class="header-section-number">2.3.2.2</span> Merge the branch back into main with a Pull Request</h4>
 <ul>
 <li>Once you are ready to incorporate the changes in your branch back into the main code stream you “merge” your branch with the main branch.</li>
 <li>The easiest way to do that is on GitHub. Once you have made commits on your branch and pushed go to the repo on GitHub</li>
@@ -411,8 +416,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Branches don’t really prevent merge conflicts. But they do allow you to decide when you want to deal with reconciling your branch and the main branch so you can be more intentional about it. If the same parts of the code are changed in the main branch and your new branch you have to decide manually which one to keep by resolving the merge conflicts as described above. GitHub provides an editor to resolve conflicts online. In some situations the conflicts are too complex to resolve online and the merge must be done from the command line. GitHub provides instructions if this happens.</li>
 </ul>
 </section>
-<section id="merge-changes-from-main-into-your-branch" class="level4" data-number="2.3.1.3">
-<h4 data-number="2.3.1.3" class="anchored" data-anchor-id="merge-changes-from-main-into-your-branch"><span class="header-section-number">2.3.1.3</span> Merge changes from main into your branch</h4>
+<section id="merge-changes-from-main-into-your-branch" class="level4" data-number="2.3.2.3">
+<h4 data-number="2.3.2.3" class="anchored" data-anchor-id="merge-changes-from-main-into-your-branch"><span class="header-section-number">2.3.2.3</span> Merge changes from main into your branch</h4>
 <ul>
 <li>Sometimes changes are made in main (or any other branch) that you want to include in your branch without incorporating the changes in your branch into main</li>
 <li>To do this you merge the main branch with yours. On GitHub if you go to your branch and click the “This branch is x commits behind main” url it will open a PR for merging main into your branch.</li>
@@ -426,8 +431,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="assets/img/merge_cmd.png" class="img-fluid"></p>
 </section>
 </section>
-<section id="forks" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="forks"><span class="header-section-number">2.3.2</span> Forks</h3>
+<section id="forks" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="forks"><span class="header-section-number">2.3.3</span> Forks</h3>
 <ul>
 <li><p>A fork is a copy of another repository which is used to contribute to an open source project that you do not have permission to edit, or to simply make a copy and edit as you wish from there but with an acknowledgement that you used another repo as a starting point.</p></li>
 <li><p>you can create a fork on GitHub by clicking the fork button in the top right of all GitHub repos or with the usethis command below which will also set up useful default settings. See <a href="https://happygitwithr.com/fork-and-clone.html#fork-and-clone-create-from-github">here</a> for more details.</p></li>
