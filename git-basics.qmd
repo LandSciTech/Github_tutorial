@@ -154,7 +154,7 @@ Not too hard to fix. Go through each file that has the orange U in the Git pane.
 
 #### Merge the branch back into main with a Pull Request
 
--   Once you are ready to incorporate the changes in your branch back into the main code stream you and merge your branch with the main branch.
+-   Once you are ready to incorporate the changes in your branch back into the main code stream you "merge" your branch with the main branch.
 -   The easiest way to do that is on GitHub. Once you have made commits on your branch and pushed go to the repo on GitHub
 -   On the GitHub repo page select the new branch from the drop down, then click Contribute \> Open pull request
 
