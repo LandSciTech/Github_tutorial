@@ -15,6 +15,7 @@
 
 - Install R packages: Open RStudio and run in the console:
   - `install.packages("usethis")`
+  - `install.packages("gitcreds")`
 
 
 ## Set username and email for git
@@ -29,8 +30,10 @@
 ## Let git talk to GitHub
 
 - `usethis::create_github_token()`
-  - Opens GitHub webpage: select “repo”, “user”, and “workflow” scopes
+  - Opens GitHub webpage: select “repo” (already selected by default), “user”, and “workflow” scopes. 
+  - Copy the token
 - `gitcreds::gitcreds_set()`
+  - Should prompt you to paste your token and it will store it in the git credential manager. 
 
 
 
