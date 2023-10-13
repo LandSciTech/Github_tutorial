@@ -1,0 +1,12 @@
+# Intermediate Git
+
+## Time travel
+
+One of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point. 
+
+Key commands:
+`git checkout HEAD^`: go to previous commit
+`git checkout HEAD~3`: go back three commits
+`git checkout 4959f4d`: go to the commit with the id "4959f4d"
+`git checkout master`: go to the most recent commit on the master (or insert other name) branch.
+
