@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Github tutorial - 4&nbsp; Miscellaneous tips and tricks</title>
+<title>Github tutorial - 3&nbsp; Intermediate Git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./git-intermediate.html" rel="prev">
+<link href="./misc.html" rel="next">
+<link href="./git-basics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./misc.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous tips and tricks</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./git-intermediate.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intermediate Git</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -119,13 +119,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./git-intermediate.html" class="sidebar-item-text sidebar-link">
+  <a href="./git-intermediate.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intermediate Git</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./misc.html" class="sidebar-item-text sidebar-link active">
+  <a href="./misc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous tips and tricks</span></span></a>
   </div>
 </li>
@@ -145,8 +145,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#easy-extensions" id="toc-easy-extensions" class="nav-link active" data-scroll-target="#easy-extensions"><span class="header-section-number">4.1</span> Easy Extensions</a></li>
-  <li><a href="#advanced-uses" id="toc-advanced-uses" class="nav-link" data-scroll-target="#advanced-uses"><span class="header-section-number">4.2</span> Advanced Uses</a></li>
+  <li><a href="#time-travel" id="toc-time-travel" class="nav-link active" data-scroll-target="#time-travel"><span class="header-section-number">3.1</span> Time travel</a></li>
   </ul>
 </nav>
     </div>
@@ -155,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous tips and tricks</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intermediate Git</span></h1>
 </div>
 
 
@@ -170,27 +169,17 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="easy-extensions" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="easy-extensions"><span class="header-section-number">4.1</span> Easy Extensions</h2>
+<section id="time-travel" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="time-travel"><span class="header-section-number">3.1</span> Time travel</h2>
+<p>One of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point.</p>
+<p>Key commands:</p>
 <ul>
-<li>Making a repo work like a simple website <a href="https://happygitwithr.com/workflows-browsability.html##workflows-browsability" class="uri">https://happygitwithr.com/workflows-browsability.html##workflows-browsability</a></li>
-<li>Installing a Git Client <a href="https://happygitwithr.com/git-client.html##git-client" class="uri">https://happygitwithr.com/git-client.html##git-client</a></li>
-<li>Good default folder structure and setup for a typical analysis project: <a href="https://frbcesab.github.io/rcompendium/index.html" class="uri">https://frbcesab.github.io/rcompendium/index.html</a></li>
+<li><code>git checkout HEAD^</code>: go to previous commit</li>
+<li><code>git checkout HEAD~3</code>: go back three commits</li>
+<li><code>git checkout 4959f4d</code>: go to the commit with the id “4959f4d”</li>
+<li><code>git checkout master</code>: go to the most recent commit on the master (or insert other name) branch.</li>
 </ul>
-</section>
-<section id="advanced-uses" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="advanced-uses"><span class="header-section-number">4.2</span> Advanced Uses</h2>
-<ul>
-<li>Host a website: <a href="https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html" class="uri">https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html</a></li>
-<li>Use GitHub Actions for continuous integration: <a href="https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/" class="uri">https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/</a></li>
-<li>Using GitHub to manage frequently updated data:
-<ul>
-<li><a href="https://doi.org/10.1371/journal.pbio.3000125" class="uri">https://doi.org/10.1371/journal.pbio.3000125</a><br>
-</li>
-<li><a href="https://www.updatingdata.org/githubactions/" class="uri">https://www.updatingdata.org/githubactions/</a></li>
-<li><a href="https://doi.org/10.1111/2041-210X.13982" class="uri">https://doi.org/10.1111/2041-210X.13982</a></li>
-</ul></li>
-</ul>
+<p>Explain “detached HEAD” and what reset does…</p>
 
 
 </section>
@@ -431,13 +420,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./git-intermediate.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intermediate Git</span></span>
+      <a href="./git-basics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Using Git and GitHub</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./misc.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous tips and tricks</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

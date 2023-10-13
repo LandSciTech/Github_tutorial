@@ -91,18 +91,25 @@
     "text": "2.4 Git Terminology Summary 2\n\nMerge: Combine two versions of a file. These can be the local and GitHub (remote) copies or two different branches.\nConflict: When merging can’t be done automatically because two versions of the code have edited the same part of a file.\nBranch: A copy of the code that you want to keep separate from the main code at least for a time.\nPull request: A special GitHub page that shows what will be added to the main branch when another branch is merged.\nFork: A copy of a repository that you don’t own. Used for contributing to open source projects."
   },
   {
+    "objectID": "git-intermediate.html#time-travel",
+    "href": "git-intermediate.html#time-travel",
+    "title": "3  Intermediate Git",
+    "section": "3.1 Time travel",
+    "text": "3.1 Time travel\nOne of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point.\nKey commands:\n\ngit checkout HEAD^: go to previous commit\ngit checkout HEAD~3: go back three commits\ngit checkout 4959f4d: go to the commit with the id “4959f4d”\ngit checkout master: go to the most recent commit on the master (or insert other name) branch.\n\nExplain “detached HEAD” and what reset does…"
+  },
+  {
     "objectID": "misc.html#easy-extensions",
     "href": "misc.html#easy-extensions",
-    "title": "3  Miscellaneous tips and tricks",
-    "section": "3.1 Easy Extensions",
-    "text": "3.1 Easy Extensions\n\nMaking a repo work like a simple website https://happygitwithr.com/workflows-browsability.html##workflows-browsability\nInstalling a Git Client https://happygitwithr.com/git-client.html##git-client\nGood default folder structure and setup for a typical analysis project: https://frbcesab.github.io/rcompendium/index.html"
+    "title": "4  Miscellaneous tips and tricks",
+    "section": "4.1 Easy Extensions",
+    "text": "4.1 Easy Extensions\n\nMaking a repo work like a simple website https://happygitwithr.com/workflows-browsability.html##workflows-browsability\nInstalling a Git Client https://happygitwithr.com/git-client.html##git-client\nGood default folder structure and setup for a typical analysis project: https://frbcesab.github.io/rcompendium/index.html"
   },
   {
     "objectID": "misc.html#advanced-uses",
     "href": "misc.html#advanced-uses",
-    "title": "3  Miscellaneous tips and tricks",
-    "section": "3.2 Advanced Uses",
-    "text": "3.2 Advanced Uses\n\nHost a website: https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html\nUse GitHub Actions for continuous integration: https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/\nUsing GitHub to manage frequently updated data:\n\nhttps://doi.org/10.1371/journal.pbio.3000125\n\nhttps://www.updatingdata.org/githubactions/\nhttps://doi.org/10.1111/2041-210X.13982"
+    "title": "4  Miscellaneous tips and tricks",
+    "section": "4.2 Advanced Uses",
+    "text": "4.2 Advanced Uses\n\nHost a website: https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html\nUse GitHub Actions for continuous integration: https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/\nUsing GitHub to manage frequently updated data:\n\nhttps://doi.org/10.1371/journal.pbio.3000125\n\nhttps://www.updatingdata.org/githubactions/\nhttps://doi.org/10.1111/2041-210X.13982"
   },
   {
     "objectID": "references.html",
