@@ -95,7 +95,7 @@
     "href": "git-intermediate.html#time-travel",
     "title": "3  Intermediate Git",
     "section": "3.1 Time travel",
-    "text": "3.1 Time travel\nOne of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point.\nKey commands:\n\ngit checkout HEAD^: go to previous commit\ngit checkout HEAD~3: go back three commits\ngit checkout 4959f4d: go to the commit with the id “4959f4d”\ngit checkout master: go to the most recent commit on the master (or insert other name) branch.\n\nExplain “detached HEAD” and what reset does…"
+    "text": "3.1 Time travel\nOne of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point. As mentioned in the previous chapter you can see the changes to a file using the History or Blame buttons on GitHub. You can also view the History of your repo in RStudio by clicking “History” in the Git Pane. This will show you a Window with all your commits and you can select one to see what it changed. You can also click “View file @ SHA” to see the full file at that point in history, which you can then save or run as you see fit.\n\nKey commands:\n\ngit checkout HEAD^: go to previous commit\ngit checkout HEAD~3: go back three commits\ngit checkout 4959f4d: go to the commit with the id “4959f4d”\ngit checkout master: go to the most recent commit on the master (or insert other name) branch.\n\nExplain “detached HEAD” and what reset does…"
   },
   {
     "objectID": "misc.html#easy-extensions",

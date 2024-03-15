@@ -30,7 +30,7 @@
 ## Let git talk to GitHub
 
 - `usethis::create_github_token()`
-  - Opens GitHub webpage: select “repo” (already selected by default), “user”, and “workflow” scopes. 
+  - Opens GitHub webpage: select “repo” (always selected so it is greyed out), “user”, and “workflow” scopes. 
   - Copy the token
 - `gitcreds::gitcreds_set()`
   - Should prompt you to paste your token and it will store it in the git credential manager. 

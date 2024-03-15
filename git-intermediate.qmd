@@ -2,13 +2,27 @@
 
 ## Time travel
 
-One of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point.
+One of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point. 
 
-Key commands: 
+### Individual files
+As mentioned in the previous [chapter](https://landscitech.github.io/Github_tutorial/git-basics.html#file-on-github) you can see the changes to a file using the History or Blame buttons on GitHub. You can also view the History of your repo in RStudio by clicking "History" in the Git Pane. This will show you a Window with all your commits and you can select one to see what it changed. You can also click "View file \@ SHA" to see the full file at that point in history, which you can then save or run as you see fit.
 
-- `git checkout HEAD^`: go to previous commit 
-- `git checkout HEAD~3`: go back three commits 
-- `git checkout 4959f4d`: go to the commit with the id "4959f4d" 
-- `git checkout master`: go to the most recent commit on the master (or insert other name) branch.
+![](assets/img/RS_history.PNG)
+
+
+### Whole repository
+You can also look at the whole repository at a previous time point. On GitHub on the Commits page you can click the "<>" button to browse the repository at that point in the commit history. 
+![](assets/img/view_repo_at_point.PNG.PNG)
+
+On your local computer you can change the files back to how they were at a particular point in history using the git checkout command. This is the same command used to switch branches. You can use a specific commit name or move a certain number of commits back from the current status (HEAD). 
+
+If you try to do this with uncommited changes you will get an error saying you must first commit you changes. 
+
+Key commands:
+
+-   `git checkout HEAD^`: go to previous commit
+-   `git checkout HEAD~3`: go back three commits
+-   `git checkout 4959f4d`: go to the commit with the id "4959f4d"
+-   `git checkout master`: go to the most recent commit on the master (or insert other name) branch.
 
 Explain "detached HEAD" and what reset does...
