@@ -150,10 +150,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#individual-files" id="toc-individual-files" class="nav-link" data-scroll-target="#individual-files"><span class="header-section-number">3.1.1</span> Individual files</a></li>
   <li><a href="#whole-repository" id="toc-whole-repository" class="nav-link" data-scroll-target="#whole-repository"><span class="header-section-number">3.1.2</span> Whole repository</a></li>
   </ul></li>
-  <li><a href="#changing-history" id="toc-changing-history" class="nav-link" data-scroll-target="#changing-history"><span class="header-section-number">3.2</span> Changing history</a>
+  <li><a href="#changing-history" id="toc-changing-history" class="nav-link" data-scroll-target="#changing-history"><span class="header-section-number">3.2</span> Changing history</a></li>
+  <li><a href="#working-in-the-wrong-branch" id="toc-working-in-the-wrong-branch" class="nav-link" data-scroll-target="#working-in-the-wrong-branch"><span class="header-section-number">3.3</span> Working in the wrong branch</a>
   <ul class="collapse">
-  <li><a href="#worked-example-of-reset-and-revert." id="toc-worked-example-of-reset-and-revert." class="nav-link" data-scroll-target="#worked-example-of-reset-and-revert."><span class="header-section-number">3.2.1</span> Worked example of reset and revert.</a></li>
+  <li><a href="#changes-not-committed" id="toc-changes-not-committed" class="nav-link" data-scroll-target="#changes-not-committed"><span class="header-section-number">3.3.1</span> Changes not committed</a></li>
+  <li><a href="#committed-changes-to-wrong-branch-havent-pushed" id="toc-committed-changes-to-wrong-branch-havent-pushed" class="nav-link" data-scroll-target="#committed-changes-to-wrong-branch-havent-pushed"><span class="header-section-number">3.3.2</span> Committed changes to wrong branch haven’t pushed</a></li>
+  <li><a href="#commited-changes-to-wrong-branch-and-pushed" id="toc-commited-changes-to-wrong-branch-and-pushed" class="nav-link" data-scroll-target="#commited-changes-to-wrong-branch-and-pushed"><span class="header-section-number">3.3.3</span> Commited changes to wrong branch and pushed</a></li>
   </ul></li>
+  <li><a href="#background-on-working-directory-staging-index-and-commit-history" id="toc-background-on-working-directory-staging-index-and-commit-history" class="nav-link" data-scroll-target="#background-on-working-directory-staging-index-and-commit-history"><span class="header-section-number">3.4</span> Background on working directory, staging index and commit history</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="whole-repository" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="whole-repository"><span class="header-section-number">3.1.2</span> Whole repository</h3>
-<p>You can also look at the whole repository at a previous time point. On GitHub on the Commits page you can click the “&lt;&gt;” button to browse the repository at that point in the commit history. <img src="assets/img/view_repo_at_point.PNG.PNG" class="img-fluid"></p>
+<p>You can also look at the whole repository at a previous time point. On GitHub on the Commits page you can click the “&lt;&gt;” button to browse the repository at that point in the commit history. <img src="assets/img/view_repo_at_point.PNG" class="img-fluid"></p>
 <p>On your local computer you can change the files back to how they were at a particular point in history using the git checkout command. This is the same command used to switch branches. You can use a specific commit name or move a certain number of commits back from the current status (HEAD).</p>
 <p>If you try to do this with uncommited changes you will get an error saying you must first commit your changes.</p>
 <p>Example commands:</p>
@@ -196,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 <li><code>git switch -d HEAD~3</code>: go back three commits</li>
 <li><code>git switch -d 4959f4d</code>: go to the commit with the id “4959f4d”</li>
 </ul>
-<p>When do this you are in ‘detached HEAD’ state (-d is short for –detach). You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by switching back to a branch.</p>
+<p>When you do this you are in ‘detached HEAD’ state (-d is short for –detach). You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by switching back to a branch.</p>
 <p>If you want to create a new branch to retain commits you create, you may do so (now or later) by using -c with the switch command. Example:</p>
 <p><code>git switch -c &lt;new-branch-name&gt;</code></p>
 <p>When you are done you can go back to the most recent commit on the master branch (or other branch) with <code>git switch master</code>.</p>
@@ -206,11 +210,44 @@ ul.task-list li input[type="checkbox"] {
 <section id="changing-history" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="changing-history"><span class="header-section-number">3.2</span> Changing history</h2>
 <p>At this stage we haven’t actually changed anything in our repository. If you can use the above strategies to figure out where something went wrong and then fix it in a new commit that is probably the easiest thing. If you want to undo all the changes after a particular commit you can use <code>revert</code> or <code>reset</code>. <code>revert</code> is the safer option, it reverse engineers the changes from a previous commit and then adds a new commit to the repository with the changes removed. This is safe because it keeps the whole history so if you then decided to undo the undo you still have the commit from before you called <code>revert</code>. This is the best solution for changes that have been pushed to GitHub. <code>reset</code> can be used to erase all the commits between the current commit and the commit given to the command. There are several options that can be applied to it which affect what happens to the files that were edited in those intervening commits. With <code>reset --hard</code> the changes to the files are also removed, this cannot be undone so only use it if you are very sure you want to get rid of all changes made. <code>reset --mixed</code> will delete any new commits but will keep the changes to the files as uncommitted changes in your local file system. Resetting is problematic if you already pushed the commit to GitHub because the version of the repository on GitHub has the commit and thinks you are missing something so it won’t let you push easily. That is why you should only use <code>revert</code> for commits that have been pushed.</p>
-<section id="worked-example-of-reset-and-revert." class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="worked-example-of-reset-and-revert."><span class="header-section-number">3.2.1</span> Worked example of reset and revert.</h3>
-
-
+<p>For a detailed explanation of <code>reset</code>, <code>revert</code> and <code>checkout</code> see <a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting#:~:text=For%20this%20reason%2C%20git%20revert,is%20for%20undoing%20uncommitted%20changes.">this article</a></p>
 </section>
+<section id="working-in-the-wrong-branch" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="working-in-the-wrong-branch"><span class="header-section-number">3.3</span> Working in the wrong branch</h2>
+<p>A common git problem is realizing that you forgot to switch to the appropriate branch before starting some work. There are a few different possible scenarios that require different solutions.</p>
+<section id="changes-not-committed" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="changes-not-committed"><span class="header-section-number">3.3.1</span> Changes not committed</h3>
+<p>If you haven’t committed the work you can use the following pattern:</p>
+<pre><code>git stash
+git switch &lt;branchname&gt;
+git stash apply</code></pre>
+<p>If you want to create a new branch you can use <code>git switch -c &lt;branchname&gt;</code> without needing to use <code>stash</code> because changes in the working tree are kept when a new branch is created.</p>
+</section>
+<section id="committed-changes-to-wrong-branch-havent-pushed" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="committed-changes-to-wrong-branch-havent-pushed"><span class="header-section-number">3.3.2</span> Committed changes to wrong branch haven’t pushed</h3>
+<p>If you have committed the changes to the wrong branch (lets assume main) then we are going to need to use <code>reset</code>. First we need to take the changes out of the commit history of the main branch and store them in the working tree:</p>
+<pre><code>git reset --soft &lt;commit&gt;</code></pre>
+<p>You can replace <code>&lt;commit&gt;</code> with the commit SHA id or use a reference from the current commit e.g.&nbsp;<code>HEAD^</code> for the previous commit.</p>
+<p>Now it is as if we didn’t commit them and we can use <code>stash</code> and <code>switch</code> as above to move the changes to the desired branch. The changes will be uncommitted in the branch so you will lose any commit messages and need to re-commit the files.</p>
+</section>
+<section id="commited-changes-to-wrong-branch-and-pushed" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="commited-changes-to-wrong-branch-and-pushed"><span class="header-section-number">3.3.3</span> Commited changes to wrong branch and pushed</h3>
+<p>This starts to get a bit messy but is still fixable. You should be able to follow a similar pattern but need to make sure that you don’t rewrite history for other users of your repository. So you can do <code>reset --soft</code> followed by <code>stash</code> and <code>switch</code> as above but then you will want to go back to main, pull so that your branch matches the GitHub version (origin) again and then use <code>revert</code> to undo the changes that were in the wrong branch with a new commit.<br>
+To revert the most recent commit:</p>
+<pre><code>git revert HEAD</code></pre>
+</section>
+</section>
+<section id="background-on-working-directory-staging-index-and-commit-history" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="background-on-working-directory-staging-index-and-commit-history"><span class="header-section-number">3.4</span> Background on working directory, staging index and commit history</h2>
+<p>These are the three layers the git uses to track changes to files. I have tried to avoid this git jargon above but understanding it will be helpful for interpreting other git resources.</p>
+<ul>
+<li><strong>Working directory</strong> Your local files, when you save a change to a file the change is stored in the working directory and you will see the file as modified or untracked in the Rstudio Git pane.</li>
+<li><strong>Staging index</strong> These are changes that you have told git should be included in the next commit by clicking the checkbox in the Git pane or using <code>git add</code>.</li>
+<li><strong>Commit history</strong> These are snapshots of the working directory that have been saved at different points in history.</li>
+</ul>
+<p>See <a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset">this article</a> for a detailed explanation of these three and how <code>reset</code> affects each of them.</p>
+
+
 </section>
 
 </main> <!-- /main -->

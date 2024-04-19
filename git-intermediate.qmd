@@ -12,7 +12,7 @@ As mentioned in the previous [chapter](https://landscitech.github.io/Github_tuto
 
 ### Whole repository
 You can also look at the whole repository at a previous time point. On GitHub on the Commits page you can click the "<>" button to browse the repository at that point in the commit history. 
-![](assets/img/view_repo_at_point.PNG.PNG)
+![](assets/img/view_repo_at_point.PNG)
 
 On your local computer you can change the files back to how they were at a particular point in history using the git checkout command. This is the same command used to switch branches. You can use a specific commit name or move a certain number of commits back from the current status (HEAD). 
 
@@ -24,7 +24,7 @@ Example commands:
 -   `git switch -d HEAD~3`: go back three commits
 -   `git switch -d 4959f4d`: go to the commit with the id "4959f4d"
 
-When do this you are in 'detached HEAD' state (-d is short for --detach). You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by switching back to a branch.
+When you do this you are in 'detached HEAD' state (-d is short for --detach). You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by switching back to a branch.
 
 If you want to create a new branch to retain commits you create, you may
 do so (now or later) by using -c with the switch command. Example:
@@ -40,6 +40,49 @@ Note: `switch` is a newer git command so you will see older help docs and such u
 
 At this stage we haven't actually changed anything in our repository. If you can use the above strategies to figure out where something went wrong and then fix it in a new commit that is probably the easiest thing. If you want to undo all the changes after a particular commit you can use `revert` or `reset`. `revert` is the safer option, it reverse engineers the changes from a previous commit and then adds a new commit to the repository with the changes removed. This is safe because it keeps the whole history so if you then decided to undo the undo you still have the commit from before you called `revert`. This is the best solution for changes that have been pushed to GitHub. `reset` can be used to erase all the commits between the current commit and the commit given to the command. There are several options that can be applied to it which affect what happens to the files that were edited in those intervening commits. With `reset --hard` the changes to the files are also removed, this cannot be undone so only use it if you are very sure you want to get rid of all changes made. `reset --mixed` will delete any new commits but will keep the changes to the files as uncommitted changes in your local file system. Resetting is problematic if you already pushed the commit to GitHub because the version of the repository on GitHub has the commit and thinks you are missing something so it won't let you push easily. That is why you should only use `revert` for commits that have been pushed. 
 
+For a detailed explanation of `reset`, `revert` and `checkout` see [this article](https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting#:~:text=For%20this%20reason%2C%20git%20revert,is%20for%20undoing%20uncommitted%20changes.) 
 
-### Worked example of reset and revert. 
+## Working in the wrong branch
+
+A common git problem is realizing that you forgot to switch to the appropriate  branch before starting some work. There are a few different possible scenarios that require different solutions. 
+
+### Changes not committed
+
+If you haven't committed the work you can use the following pattern:
+```
+git stash
+git switch <branchname>
+git stash apply
+```
+If you want to create a new branch you can use `git switch -c <branchname>` without needing to use `stash` because changes in the working tree are kept when a new branch is created. 
+
+### Committed changes to wrong branch haven't pushed
+
+If you have committed the changes to the wrong branch (lets assume main) then we are going to need to use `reset`. First we need to take the changes out of the commit history of the main branch and store them in the working tree:
+
+```
+git reset --soft <commit>
+```
+You can replace `<commit>` with the commit SHA id or use a reference from the current commit e.g. `HEAD^` for the previous commit. 
+
+Now it is as if we didn't commit them and we can use `stash` and `switch` as above to move the changes to the desired branch. The changes will be uncommitted in the branch so you will lose any commit messages and need to re-commit the files. 
+
+### Commited changes to wrong branch and pushed
+
+This starts to get a bit messy but is still fixable. You should be able to follow a similar pattern but need to make sure that you don't rewrite history for other users of your repository. So you can do `reset --soft` followed by `stash` and `switch` as above but then you will want to go back to main, pull so that your branch matches the GitHub version (origin) again and then use `revert` to undo the changes that were in the wrong branch with a new commit.  
+To revert the most recent commit:
+```
+git revert HEAD
+```
+## Background on working directory, staging index and commit history
+These are the three layers the git uses to track changes to files. I have tried to avoid this git jargon above but understanding it will be helpful for interpreting other git resources. 
+
+  * **Working directory** Your local files, when you save a change to a file the change is stored in the working directory and you will see the file as modified or untracked in the Rstudio Git pane. 
+  * **Staging index** These are changes that you have told git should be included in the next commit by clicking the checkbox in the Git pane or using `git add`. 
+  * **Commit history** These are snapshots of the working directory that have been saved at different points in history. 
+  
+See [this article](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset) for a detailed explanation of these three and how `reset` affects each of them.
+
+
+
 
