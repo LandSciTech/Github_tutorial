@@ -122,6 +122,10 @@ Not too hard to fix. Go through each file that has the orange U in the Git pane.
 -   Keep in touch with collaborators so you are not working on the same lines at the same time.
 -   Use a branch
 
+### Philosophy
+
+Don't get too hung up on using Git perfectly! There is a lot of talk out there about keeping a clean and linear commit history but I don't worry about this. We are not working on large enterprise software teams. For the most part focus on keeping the process simple for yourself so that you actually do it. The main things are commit often, with clear commit messages and push and pull often so that you don't get too far out of sync with collaborators. The other concern I hear often is not wanting others to see your messy process. Try not to worry about this, no one cares enough to read through your closed issues and entire commit history. Besides it is part of the beauty of open source development for others to see the finished product but also the process of creating it.
+
 ## Tools for Collaboration
 
 ### Write good code
