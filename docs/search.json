@@ -1,58 +1,242 @@
 [
   {
-    "objectID": "git-intermediate.html#time-travel",
-    "href": "git-intermediate.html#time-travel",
-    "title": "3  Intermediate Git",
-    "section": "3.1 Time travel",
-    "text": "3.1 Time travel\nOne of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point.\n\n3.1.1 Individual files\nAs mentioned in the previous chapter you can see the changes to a file using the History or Blame buttons on GitHub. You can also view the History of your repo in RStudio by clicking “History” in the Git Pane. This will show you a Window with all your commits and you can select one to see what it changed. You can also click “View file @ SHA” to see the full file at that point in history, which you can then save or run as you see fit.\n\n\n\n3.1.2 Whole repository\nYou can also look at the whole repository at a previous time point. On GitHub on the Commits page you can click the “&lt;&gt;” button to browse the repository at that point in the commit history. \nOn your local computer you can change the files back to how they were at a particular point in history using the git checkout command. This is the same command used to switch branches. You can use a specific commit name or move a certain number of commits back from the current status (HEAD).\nIf you try to do this with uncommited changes you will get an error saying you must first commit your changes.\nExample commands:\n\ngit switch -d HEAD^: go to previous commit\ngit switch -d HEAD~3: go back three commits\ngit switch -d 4959f4d: go to the commit with the id “4959f4d”\n\nWhen you do this you are in ‘detached HEAD’ state (-d is short for –detach). You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by switching back to a branch.\nIf you want to create a new branch to retain commits you create, you may do so (now or later) by using -c with the switch command. Example:\ngit switch -c &lt;new-branch-name&gt;\nWhen you are done you can go back to the most recent commit on the master branch (or other branch) with git switch master.\nNote: switch is a newer git command so you will see older help docs and such use checkout for this task. switch was added because checkout does a lot of different things and is confusing to new users so I am using switch here."
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Github tutorial",
+    "section": "",
+    "text": "Using GitHub for Reproducible Research\nThis contains a set of tutorials for setting up and learning to use Git and GitHub with R and RStudio. It borrows heavily from Happy Git With R by Jenny Bryan but with less details.",
+    "crumbs": [
+      "Using GitHub for Reproducible Research"
+    ]
   },
   {
-    "objectID": "git-intermediate.html#changing-history",
-    "href": "git-intermediate.html#changing-history",
-    "title": "3  Intermediate Git",
-    "section": "3.2 Changing history",
-    "text": "3.2 Changing history\nAt this stage we haven’t actually changed anything in our repository. If you can use the above strategies to figure out where something went wrong and then fix it in a new commit that is probably the easiest thing. If you want to undo all the changes after a particular commit you can use revert or reset. revert is the safer option, it reverse engineers the changes from a previous commit and then adds a new commit to the repository with the changes removed. This is safe because it keeps the whole history so if you then decided to undo the undo you still have the commit from before you called revert. This is the best solution for changes that have been pushed to GitHub. reset can be used to erase all the commits between the current commit and the commit given to the command. There are several options that can be applied to it which affect what happens to the files that were edited in those intervening commits. With reset --hard the changes to the files are also removed, this cannot be undone so only use it if you are very sure you want to get rid of all changes made. reset --mixed will delete any new commits but will keep the changes to the files as uncommitted changes in your local file system. Resetting is problematic if you already pushed the commit to GitHub because the version of the repository on GitHub has the commit and thinks you are missing something so it won’t let you push easily. That is why you should only use revert for commits that have been pushed.\nFor a detailed explanation of reset, revert and checkout see this article"
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "1  Installation and Setup",
+    "section": "",
+    "text": "1.1 Installation",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#installation",
+    "href": "setup.html#installation",
+    "title": "1  Installation and Setup",
+    "section": "",
+    "text": "Install R and Rstudio (available from ECCC Software Centre)\n\nSoftware Centre can be very slow to install, you can install R and RStudio without administrator permissions from the internet as well https://posit.co/download/rstudio-desktop/\n\nInstall Git https://gitforwindows.org/ (does not require admin permissions)\n\nNOTE: When asked about “Adjusting your PATH environment”, make sure to select “Git from the command line and also from 3rd-party software”. Otherwise, accept the defaults.\n\nCreate a GitHub account https://github.com/\nInstall R packages: Open RStudio and run in the console:\n\ninstall.packages(\"usethis\")\ninstall.packages(\"gitcreds\")",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#set-username-and-email-for-git",
+    "href": "setup.html#set-username-and-email-for-git",
+    "title": "1  Installation and Setup",
+    "section": "1.2 Set username and email for git",
+    "text": "1.2 Set username and email for git\n\nusethis::use_git_config(user.name = \"Jane Doe\", user.email = \"jane@example.org\")\n\nuser.name is the name associated with your git commits so just make it informative for your collaborators (ie: actual name, github username)\nuser.email must match your GitHub account email",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#let-git-talk-to-github",
+    "href": "setup.html#let-git-talk-to-github",
+    "title": "1  Installation and Setup",
+    "section": "1.3 Let git talk to GitHub",
+    "text": "1.3 Let git talk to GitHub\n\nusethis::create_github_token()\n\nOpens GitHub webpage: select “repo” (always selected so it is greyed out), “user”, and “workflow” scopes.\nCopy the token\n\ngitcreds::gitcreds_set()\n\nShould prompt you to paste your token and it will store it in the git credential manager.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#start-a-new-project-with-github",
+    "href": "setup.html#start-a-new-project-with-github",
+    "title": "1  Installation and Setup",
+    "section": "1.4 Start a new project with GitHub",
+    "text": "1.4 Start a new project with GitHub\nStep 1: Make a new repo on GitHub\n\nGo to https://github.com and make sure you are logged in.\nNear “Repositories”, click the big green “New” button.\n\nHow to fill this in:\n\nRepository template: No template.\nRepository name: myrepo . Like a variable name, in code: descriptive but brief, no whitespace. Letters, digits, - , . , or _ are allowed.\nDescription: any short description of the project\nPublic.\nInitialize this repository with: Add a README file.\nClick the big green button that says “Create repository”.\n\n\n\nStep 2: Copy repo URL\n\nNow click the big green button that says “&lt;&gt; Code”.\nCopy a clone URL to your clipboard. Use the HTTPS URL.\n\n\nStep 3: Clone into a new project in RStudio\n\nFile &gt; New Project &gt; Version Control &gt; Git. In the “repository URL” paste the URL of your new GitHub repository.\n\nBe intentional about where you create this Project. Don’t put it inside another git repository.\nI suggest you “Open in new session”.\n\nClick “Create Project” to create a new directory,\nThis should download the README.md file that we created on GitHub in the previous step. Look in RStudio’s file browser pane for the README.md file.\nBehind the scenes, RStudio has done this for you: git clone https://github.com/see24/myrepo.git",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#work-on-a-project",
+    "href": "setup.html#work-on-a-project",
+    "title": "1  Installation and Setup",
+    "section": "1.5 Work on a project",
+    "text": "1.5 Work on a project\n\nEdit the README.md file, e.g., by adding the line “This is a line from RStudio”.\nSave the file locally\nOn the Git pane click commit\n\n\n\nIn the pop-up review the changes at the bottom\nCheck the “Staged” box and type a commit message and click “Commit”\n\n\n\n1.5.1 Sync changes to GitHub: Push\n\nClick “Push” in the Rstudio Git pane\nLook at the repo on GitHub so see the new line is there\n\n\n\n\n1.5.2 Sync local copy from GitHub: Pull\n\nIn the GitHub repo main page\n\nIn the upper right corner of the Readme, click on the pencil\nAdd a line eg : “Line added from GitHub.”\nClick “Commit changes.”\nIn RStudio click Pull on the Git pane\nYou should see the new line in the Readme",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#add-an-existing-project-to-github",
+    "href": "setup.html#add-an-existing-project-to-github",
+    "title": "1  Installation and Setup",
+    "section": "1.6 Add an existing project to GitHub",
+    "text": "1.6 Add an existing project to GitHub\n\n1.6.1 Simplest way\n\nCreate a new repo and Rstudio project in the same way as above\nSimply copy all files into the newly created folder on your local computer\nStage and commit all files that you want to store on GitHub\n\nNothing sensitive ie passwords, keys etc (you can have a private repo if you are not ready to share code with the world)\nProbably not large datasets\nUse . gitignore to avoid git tracking things (more on this later)\n\n\n\n\n1.6.2 Using usethis\nThis requires that your PAT is properly set up.\n\nIf the project is not already an Rstudio project, call usethis::create_project(\"path/to/your/project\")\nIf the project is not already using Git call usethis::use_git()\nStage and commit files (see above for caveats)\nCall usethis::use_github() which will create a new repo in your GitHub account with the folder name as the repo name.\n\nThese are the simplest way to do it but there are more advanced, more traditional git ways to do it: https://happygitwithr.com/existing-github-last.html",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#issues-with-installation",
+    "href": "setup.html#issues-with-installation",
+    "title": "1  Installation and Setup",
+    "section": "1.7 Issues with installation",
+    "text": "1.7 Issues with installation\nIf RStudio is not finding a git installation:\n\nRestart RStudio and try again\nIf still not working, run this in the windows command line: git --exec-path\nCopy the path, then in RStudio click Tools &gt; Global Options &gt; Git/SVN and set the Git executable by clicking browse, pasting the path in the address bar and selecting the git.exe file.\nRestart RStudio again\n\nSee https://happygitwithr.com/rstudio-see-git.html for more instructions on troubleshooting",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#git-terminology-summary-1",
+    "href": "setup.html#git-terminology-summary-1",
+    "title": "1  Installation and Setup",
+    "section": "1.8 Git terminology summary 1",
+    "text": "1.8 Git terminology summary 1\n\nRepository (repo): Folder that contains a hidden .git file that tracks changes made to files in that folder. The folder can “live” on your local computer or a server like GitHub’s. On GitHub the repository is also the web page where all the files are stored among other things\nPush: Copy changes from your local version of the repo to the GitHub version\nPull: Copy changes from the GitHub version of the repo to your local version\nClone: make a copy of a git repository. By default in R studio this is connected to the GitHub version (called the remote or origin)\nCommit: A marker that is kept in the git history and helps to incrementally track changes. Made useful by descriptive commit messages",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Installation and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "git-basics.html",
+    "href": "git-basics.html",
+    "title": "2  Using Git and GitHub",
+    "section": "",
+    "text": "2.1 Tour of GitHub repository\nhttps://github.com/LandSciTech/caribouMetrics",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Using Git and GitHub</span>"
+    ]
   },
   {
     "objectID": "git-basics.html#tour-of-github-repository",
     "href": "git-basics.html#tour-of-github-repository",
     "title": "2  Using Git and GitHub",
-    "section": "2.1 Tour of GitHub repository",
-    "text": "2.1 Tour of GitHub repository\nhttps://github.com/LandSciTech/caribouMetrics\n\n2.1.1 Code\n\nTop folder of repo.\nActs as landing page.\nDisplays the readme file.\n\n\n\n2.1.2 File on GitHub\n\nCan view and edit code on GitHub.\n\n\n\nCan see what has changed over time.\nHistory shows all commits that have affected the file.\n\n\n\nBlame shows for each line, who last edited, when, and the commit message.\n\n\n\n\n2.1.3 Viewing a commit\n\nShows all files changed and highlights which parts changed.\n\n\n\nWorks for images too!\n\n\n\n\n2.1.4 Issues\nA place for tracking things that need to get done or reporting bugs or unexpected results.\n\nCan be submitted by anyone with access to the repo.\nOnce they are dealt with they can be closed but are still kept.\nIf you are reporting a bug it is key to have a minimum reproducible example so others can see what you are seeing and try to help.\nanywhere else on GitHub if you type # and then the issue number it will automatically link to the issue. In a commit message this will link the commit to the issue so you can see what was changed to address it. Example here.\nIssues can also be used for To-do lists or project planning and can be tagged with a certain category or assigned to specific users.\n\n\n\n2.1.5 Settings\nRepository options and settings. There are a lot of complex options but the most beginner relevant are:\n\nChanging repository visibility: Bottom of General section, usually changing to public once far enough along\nDeleting repository: Bottom of General section, no going back, consider archiving if it is just out of date\nAdding collaborators: under Access &gt; Collaborators and teams, click add people and type their GitHub user name. Only needed for private repositories\n\n\n\n2.1.6 GitHub Organiztions\n\nYou can create an organization to group repos together and manage collaborators. For example:\nhttps://github.com/LandSciTech\nhttps://github.com/PredictiveEcology\nhttps://github.com/na-pops"
+    "section": "",
+    "text": "2.1.1 Code\n\nTop folder of repo.\nActs as landing page.\nDisplays the readme file.\n\n\n\n2.1.2 File on GitHub\n\nCan view and edit code on GitHub.\n\n\n\nCan see what has changed over time.\nHistory shows all commits that have affected the file.\n\n\n\nBlame shows for each line, who last edited, when, and the commit message.\n\n\n\n\n2.1.3 Viewing a commit\n\nShows all files changed and highlights which parts changed.\n\n\n\nWorks for images too!\n\n\n\n\n2.1.4 Issues\nA place for tracking things that need to get done or reporting bugs or unexpected results.\n\nCan be submitted by anyone with access to the repo.\nOnce they are dealt with they can be closed but are still kept.\nIf you are reporting a bug it is key to have a minimum reproducible example so others can see what you are seeing and try to help.\nanywhere else on GitHub if you type # and then the issue number it will automatically link to the issue. In a commit message this will link the commit to the issue so you can see what was changed to address it. Example here.\nIssues can also be used for To-do lists or project planning and can be tagged with a certain category or assigned to specific users.\n\n\n\n2.1.5 Settings\nRepository options and settings. There are a lot of complex options but the most beginner relevant are:\n\nChanging repository visibility: Bottom of General section, usually changing to public once far enough along\nDeleting repository: Bottom of General section, no going back, consider archiving if it is just out of date\nAdding collaborators: under Access &gt; Collaborators and teams, click add people and type their GitHub user name. Only needed for private repositories\n\n\n\n2.1.6 GitHub Organiztions\n\nYou can create an organization to group repos together and manage collaborators. For example:\nhttps://github.com/LandSciTech\nhttps://github.com/PredictiveEcology\nhttps://github.com/na-pops",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Using Git and GitHub</span>"
+    ]
   },
   {
     "objectID": "git-basics.html#daily-git-usage",
     "href": "git-basics.html#daily-git-usage",
     "title": "2  Using Git and GitHub",
     "section": "2.2 Daily Git Usage",
-    "text": "2.2 Daily Git Usage\n\n2.2.1 When to commit\n\nOften!\nBut not too often!\n\nUse “Amend previous commit” checkbox when you want to make sure to commit but aren’t sure you are done yet\n\nTry to make each commit distinct and accomplish one thing. eg:\n\nMake data cleaning script\nCreate exploratory plots\nFix bug in data cleaning handling of dates\nUpdate exploratory plots with dates\n\n\n\n\n2.2.2 What to commit\n\nEverything!\n\nGit can track any file but it does a better job with raw text files (eg: .R, .Rmd, .html, .md, .py, .sh, .txt)\nFor files like word docs or pdfs it can’t track the content and tracks the whole file every time you make a change\n\nExcept!:\n\nNothing sensitive ie passwords, keys etc (you can have a private repo if you are not ready to share code with the world but still don’t store passwords)\nProbably not large datasets. I just keep these locally but would be better to have them on a shared drive and download them programmatically\n\n.gitignore: a file at the top level of git repo that tells git what not to track.\n\nUses regular expressions to match file or folder names or types.\nExample file: https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore\n\n\n\n\n2.2.3 When to push\n\nFairly often. If you are working alone pushing is a way to back up your files. If you are collaborating it is a way to make your work available to others. If you don’t push and then a collaborator makes changes to the same file it gets a bit tricky (but fixable).\nOnce you push you can’t use the “Amend previous commit” trick\nIf you find yourself reluctant to push because you aren’t ready for others to use your work consider making a branch (see below)\n\n\n\n2.2.4 When to pull\n\nIdeally every day, or when a collaborator lets you know they pushed\nPulling often prevents getting out of sync with collaborators\nBefore pulling be sure to commit all your local work\nGood practice to pull before pushing but git will normally warn you if you forget.\n\n\n\n2.2.5 Merge conflicts in Push/Pull\n\nIf a collaborator pushed their changes after you last pulled you will need to pull before you can push. If your changes don’t conflict git will automatically merge their changes with yours.\nMerge conflicts: when a collaborator made changes that overlap your changes. Git can’t automatically fit them together you have to review and pick the part to keep.\n\n\n\n2.2.6 Resolving merge conflicts\nThis is a typical scenario with a merge conflict: “Ah! I pulled at the start of the day but then a collaborator pushed a change to the same line and now when I try to push it says I have to pull first.”\n\n“And then when I pull I get merge conflicts!”\n\nNot too hard to fix. Go through each file that has the orange U in the Git pane. Find the location of the conflict. HEAD is your local version and the alphanumeric string is the commit id for the remote version that conflicts. Pick the one you want and delete all the marker lines (&lt;&lt;&lt;, === and &gt;&gt;&gt;). Then commit and continue on with your work.\n\n\n2.2.7 Avoiding merge conflicts\n\nPull regularly\nKeep in touch with collaborators so you are not working on the same lines at the same time.\nUse a branch"
+    "text": "2.2 Daily Git Usage\n\n2.2.1 When to commit\n\nOften!\nBut not too often!\n\nUse “Amend previous commit” checkbox when you want to make sure to commit but aren’t sure you are done yet\n\nTry to make each commit distinct and accomplish one thing. eg:\n\nMake data cleaning script\nCreate exploratory plots\nFix bug in data cleaning handling of dates\nUpdate exploratory plots with dates\n\n\n\n\n2.2.2 What to commit\n\nAll source code:\n\nGit can track any file but it does a better job with raw text files (eg: .R, .Rmd, .html, .md, .py, .sh, .txt, .csv, .tsv).\nData stored in text files can be committed and this will track changes to the data over time.\nFor other files like word docs or pdfs git can’t track the content and tracks the whole file every time you make a change. If the file is generated by a text file (eg a pdf generated from a .Rmd) then don’t commit the file because it can be re-created by running the code. It is also okay to commit a file that won’t change often but you want users to have when they clone the repo.\n\nExcept!:\n\nNothing sensitive ie passwords, keys etc (you can have a private repo if you are not ready to share code with the world but still don’t store passwords)\nProbably not large datasets. Ideally these would be downloaded from a shared location programatically in the code. For example this [data prep script](https://github.com/LandSciTech/MissisaBooPaper/blob/main/scripts/1_dataPrep.R).\n\n.gitignore: a file at the top level of git repo that tells git what not to track.\n\nUses regular expressions to match file or folder names or types.\nExample file: https://github.com/LandSciTech/caribouMetrics/blob/master/.gitignore\n\n\n\n\n2.2.3 When to push\n\nFairly often. If you are working alone pushing is a way to back up your files. If you are collaborating it is a way to make your work available to others. If you don’t push and then a collaborator makes changes to the same file it gets a bit tricky (but fixable).\nOnce you push you can’t use the “Amend previous commit” trick\nIf you find yourself reluctant to push because you aren’t ready for others to use your work consider making a branch (see below)\n\n\n\n2.2.4 When to pull\n\nIdeally every day, or when a collaborator lets you know they pushed\nPulling often prevents getting out of sync with collaborators\nBefore pulling be sure to commit all your local work\nGood practice to pull before pushing but git will normally warn you if you forget.\n\n\n\n2.2.5 Merge conflicts in Push/Pull\n\nIf a collaborator pushed their changes after you last pulled you will need to pull before you can push. If your changes don’t conflict git will automatically merge their changes with yours.\nMerge conflicts: when a collaborator made changes that overlap your changes. Git can’t automatically fit them together you have to review and pick the part to keep.\n\n\n\n2.2.6 Resolving merge conflicts\nThis is a typical scenario with a merge conflict: “Ah! I pulled at the start of the day but then a collaborator pushed a change to the same line and now when I try to push it says I have to pull first.”\n\n“And then when I pull I get merge conflicts!”\n\nNot too hard to fix. Go through each file that has the orange U in the Git pane. Find the location of the conflict. HEAD is your local version and the alphanumeric string is the commit id for the remote version that conflicts. Pick the one you want and delete all the marker lines (&lt;&lt;&lt;, === and &gt;&gt;&gt;). Then commit and continue on with your work.\n\n\n2.2.7 Avoiding merge conflicts\n\nPull regularly\nKeep in touch with collaborators so you are not working on the same lines at the same time.\nUse a branch",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Using Git and GitHub</span>"
+    ]
   },
   {
     "objectID": "git-basics.html#tools-for-collaboration",
     "href": "git-basics.html#tools-for-collaboration",
     "title": "2  Using Git and GitHub",
     "section": "2.3 Tools for Collaboration",
-    "text": "2.3 Tools for Collaboration\n\n2.3.1 Write good code\nWriting good code with a consistent style, literate naming and comments to explain decisions goes a long way to improving collaboration. It is also required that your code runs on your collaborators computer without significant modifications. See the rResources page for some ideas on how to write good code.\n\n\n2.3.2 Branches\n\nA stream of commits that diverges from the main stream until it is ready to re-join.\nHelpful for starting a new version of something while making sure others can keep using the old version\nExample we want to convert some functions used in a paper to become an R package but Josie is working on writing the paper and needs the old version to keep working. I make a branch where I re-arrange everything into a package. If Josie makes changes to the main branch that affect the functions I can see those and merge them into my branch.\nSee https://happygitwithr.com/git-branches.html##git-branches for how to manage branches with the command line but it can also be done through the Rstudio IDE and GitHub for the most part.\n\n\n2.3.2.1 Make a new branch in RStudio\n\nClick New Branch in the Git pane\n\n\n\nGive it a name using dashes or underscores for spaces and no special characters. The “Remote” is the GitHub version of the repository, almost always leave the default. “Sync branch with remote” will also create the branch on GitHub which we typically want. Click “Create”\n\n\n\nMake a change, save, commit and push as usual.\nTo change back to the main branch click the dropdown beside the “New Branch” button and under “Local Branches” select “main”. In git this is called “checking out” the branch.\n\n\n\n\n2.3.2.2 Merge the branch back into main with a Pull Request\n\nOnce you are ready to incorporate the changes in your branch back into the main code stream you “merge” your branch with the main branch.\nThe easiest way to do that is on GitHub. Once you have made commits on your branch and pushed go to the repo on GitHub\nOn the GitHub repo page select the new branch from the drop down, then click Contribute &gt; Open pull request\n\n\n\nYou can give the pull request a descriptive name and add comments to explain what your are trying to do or link to issues that are being addressed. Then create the pull request.\nThe pull request (PR) is a page that summarizes the changes you propose to make to the main branch. It includes the list of commits in the branch since it diverged from main and the diffs for files that have changed. Collaborators can leave comments on the PR and discuss it or add new commits before it is merged.\nPRs are the main way you can contribute to open source projects, and in that case the owner of the project will get the final decision whether to merge your changes into the main branch.\nIf there are no merge conflicts and you have the authority to commit to the repos main branch you can click “Merge pull request” to merge your branch with main branch. Then you can delete the branch if it is no longer needed. On your local Rstudio session you will need to change back to the main branch and pull so that the changes are reflected in your local copy of the main branch.\nBranches don’t really prevent merge conflicts. But they do allow you to decide when you want to deal with reconciling your branch and the main branch so you can be more intentional about it. If the same parts of the code are changed in the main branch and your new branch you have to decide manually which one to keep by resolving the merge conflicts as described above. GitHub provides an editor to resolve conflicts online. In some situations the conflicts are too complex to resolve online and the merge must be done from the command line. GitHub provides instructions if this happens.\n\n\n\n2.3.2.3 Merge changes from main into your branch\n\nSometimes changes are made in main (or any other branch) that you want to include in your branch without incorporating the changes in your branch into main\nTo do this you merge the main branch with yours. On GitHub if you go to your branch and click the “This branch is x commits behind main” url it will open a PR for merging main into your branch.\n\n\n\nA PR is often unnecessary for merging main into your branch, because most times your collaborators don’t need to know about it. To avoid this you can use the command line to do the merge.\nIn RStudio on the Console pane click the Terminal tab. This will open a command line where you can type git commands.\nMake sure you are in your branch that you want to merge into. Then type: git merge main\n\n\n\n\n\n2.3.3 Forks\n\nA fork is a copy of another repository which is used to contribute to an open source project that you do not have permission to edit, or to simply make a copy and edit as you wish from there but with an acknowledgement that you used another repo as a starting point.\nyou can create a fork on GitHub by clicking the fork button in the top right of all GitHub repos or with the usethis command below which will also set up useful default settings. See here for more details.\n\nusethis::create_from_github(\n  \"https://github.com/OWNER/REPO\",\n  destdir = \"~/path/to/where/you/want/the/local/repo/\",\n  fork = TRUE\n)"
+    "text": "2.3 Tools for Collaboration\n\n2.3.1 Write good code\nWriting good code with a consistent style, literate naming and comments to explain decisions goes a long way to improving collaboration. It is also required that your code runs on your collaborators computer without significant modifications. See the rResources page for some ideas on how to write good code.\n\n\n2.3.2 Branches\n\nA stream of commits that diverges from the main stream until it is ready to re-join.\nHelpful for starting a new version of something while making sure others can keep using the old version\nExample we want to convert some functions used in a paper to become an R package but Josie is working on writing the paper and needs the old version to keep working. I make a branch where I re-arrange everything into a package. If Josie makes changes to the main branch that affect the functions I can see those and merge them into my branch.\n\n\n2.3.2.1 Make a new branch in RStudio\n\nClick New Branch in the Git pane\n\n\n\nGive it a name using dashes or underscores for spaces and no special characters. The “Remote” is the GitHub version of the repository, almost always leave the default. “Sync branch with remote” will also create the branch on GitHub which we typically want. Click “Create”\n\n\n\nMake a change, save, commit and push as usual.\nTo change back to the main branch click the dropdown beside the “New Branch” button and under “Local Branches” select “main”. In git this is called “checking out” the branch.\n\n\n\n\n2.3.2.2 Merge the branch back into main with a Pull Request\n\nOnce you are ready to incorporate the changes in your branch back into the main code stream you “merge” your branch with the main branch.\nThe easiest way to do that is on GitHub. Once you have made commits on your branch and pushed, go to the repo on GitHub\nOn the GitHub repo page select the new branch from the drop down, then click Contribute &gt; Open pull request\n\n\n\nYou can give the pull request a descriptive name and add comments to explain what your are trying to do or link to issues that are being addressed. Then create the pull request.\nThe pull request (PR) is a page that summarizes the changes you propose to make to the main branch. It includes the list of commits in the branch since it diverged from main and the diffs for files that have changed. Collaborators can leave comments on the PR and discuss it or add new commits before it is merged.\nPRs are the main way you can contribute to open source projects, and in that case the owner of the project will get the final decision whether to merge your changes into the main branch.\nIf there are no merge conflicts and you have the authority to commit to the repos main branch you can click “Merge pull request” to merge your branch with main branch. Then you can delete the branch if it is no longer needed. On your local Rstudio session you will need to change back to the main branch and pull so that the changes are reflected in your local copy of the main branch.\nBranches don’t really prevent merge conflicts. But they do allow you to decide when you want to deal with reconciling your branch and the main branch so you can be more intentional about it. If the same parts of the code are changed in the main branch and your new branch you have to decide manually which one to keep by resolving the merge conflicts as described above. GitHub provides an editor to resolve conflicts online. In some situations the conflicts are too complex to resolve online and the merge must be done from the command line. GitHub provides instructions if this happens.\n\n\n\n2.3.2.3 Merge changes from main into your branch\n\nSometimes changes are made in main (or any other branch) that you want to include in your branch without incorporating the changes in your branch into main\nTo do this you merge the main branch with yours. On GitHub if you go to your branch and click the “This branch is x commits behind main” url it will open a PR for merging main into your branch.\n\n\n\nA PR is often unnecessary for merging main into your branch, because most times your collaborators don’t need to know about it. To avoid this you can use the command line to do the merge.\nIn RStudio on the Console pane click the Terminal tab. This will open a command line where you can type git commands.\nMake sure you are in your branch that you want to merge into. Then type: git merge main\n\n\n\nSee https://happygitwithr.com/git-branches.html##git-branches for how to manage branches with the command line but it can also be done through the Rstudio IDE and GitHub for the most part.\n\n\n\n\n2.3.3 Forks\n\nA fork is a copy of another repository which is used to contribute to an open source project that you do not have permission to edit, or to simply make a copy and edit as you wish from there but with an acknowledgement that you used another repo as a starting point.\nyou can create a fork on GitHub by clicking the fork button in the top right of all GitHub repos or with the usethis command below which will also set up useful default settings. See here for more details.\n\nusethis::create_from_github(\n  \"https://github.com/OWNER/REPO\",\n  destdir = \"~/path/to/where/you/want/the/local/repo/\",\n  fork = TRUE\n)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Using Git and GitHub</span>"
+    ]
   },
   {
     "objectID": "git-basics.html#git-terminology-summary-2",
     "href": "git-basics.html#git-terminology-summary-2",
     "title": "2  Using Git and GitHub",
     "section": "2.4 Git Terminology Summary 2",
-    "text": "2.4 Git Terminology Summary 2\n\nMerge: Combine two versions of a file. These can be the local and GitHub (remote) copies or two different branches.\nConflict: When merging can’t be done automatically because two versions of the code have edited the same part of a file.\nBranch: A copy of the code that you want to keep separate from the main code at least for a time.\nPull request: A special GitHub page that shows what will be added to the main branch when another branch is merged.\nFork: A copy of a repository that you don’t own. Used for contributing to open source projects."
+    "text": "2.4 Git Terminology Summary 2\n\nMerge: Combine two versions of a file. These can be the local and GitHub (remote) copies or two different branches.\nConflict: When merging can’t be done automatically because two versions of the code have edited the same part of a file.\nBranch: A copy of the code that you want to keep separate from the main code at least for a time.\nPull request: A special GitHub page that shows what will be added to the main branch when another branch is merged.\nFork: A copy of a repository that you don’t own. Used for contributing to open source projects.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Using Git and GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "git-intermediate.html",
+    "href": "git-intermediate.html",
+    "title": "3  Intermediate Git",
+    "section": "",
+    "text": "3.1 Time travel\nOne of the key benefits of using version control is the ability to go backwards and see what a project looked like at a previous time point.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Intermediate Git</span>"
+    ]
+  },
+  {
+    "objectID": "git-intermediate.html#time-travel",
+    "href": "git-intermediate.html#time-travel",
+    "title": "3  Intermediate Git",
+    "section": "",
+    "text": "3.1.1 Individual files\nAs mentioned in the previous chapter you can see the changes to a file using the History or Blame buttons on GitHub. You can also view the History of your repo in RStudio by clicking “History” in the Git Pane. This will show you a Window with all your commits and you can select one to see what it changed. You can also click “View file @ SHA” to see the full file at that point in history, which you can then save or run as you see fit.\n\n\n\n3.1.2 Whole repository\nYou can also look at the whole repository at a previous time point. On GitHub on the Commits page you can click the “&lt;&gt;” button to browse the repository at that point in the commit history. \nOn your local computer you can change the files back to how they were at a particular point in history using the git checkout command. This is the same command used to switch branches. You can use a specific commit name or move a certain number of commits back from the current status (HEAD).\nIf you try to do this with uncommited changes you will get an error saying you must first commit your changes.\nExample commands:\n\ngit switch -d HEAD^: go to previous commit\ngit switch -d HEAD~3: go back three commits\ngit switch -d 4959f4d: go to the commit with the id “4959f4d”\n\nWhen you do this you are in ‘detached HEAD’ state (-d is short for –detach). You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by switching back to a branch.\nIf you want to create a new branch to retain commits you create, you may do so (now or later) by using -c with the switch command. Example:\ngit switch -c &lt;new-branch-name&gt;\nWhen you are done you can go back to the most recent commit on the master branch (or other branch) with git switch master.\nNote: switch is a newer git command so you will see older help docs and such use checkout for this task. switch was added because checkout does a lot of different things and is confusing to new users so I am using switch here.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Intermediate Git</span>"
+    ]
+  },
+  {
+    "objectID": "git-intermediate.html#changing-history",
+    "href": "git-intermediate.html#changing-history",
+    "title": "3  Intermediate Git",
+    "section": "3.2 Changing history",
+    "text": "3.2 Changing history\nAt this stage we haven’t actually changed anything in our repository. If you can use the above strategies to figure out where something went wrong and then fix it in a new commit that is probably the easiest thing. If you want to undo all the changes after a particular commit you can use revert or reset. revert is the safer option, it reverse engineers the changes from a previous commit and then adds a new commit to the repository with the changes removed. This is safe because it keeps the whole history so if you then decided to undo the undo you still have the commit from before you called revert. This is the best solution for changes that have been pushed to GitHub. reset can be used to erase all the commits between the current commit and the commit given to the command. There are several options that can be applied to it which affect what happens to the files that were edited in those intervening commits. With reset --hard the changes to the files are also removed, this cannot be undone so only use it if you are very sure you want to get rid of all changes made. reset --mixed will delete any new commits but will keep the changes to the files as uncommitted changes in your local file system. Resetting is problematic if you already pushed the commit to GitHub because the version of the repository on GitHub has the commit and thinks you are missing something so it won’t let you push easily. That is why you should only use revert for commits that have been pushed.\nFor a detailed explanation of reset, revert and checkout see this article",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Intermediate Git</span>"
+    ]
   },
   {
     "objectID": "git-intermediate.html#working-in-the-wrong-branch",
     "href": "git-intermediate.html#working-in-the-wrong-branch",
     "title": "3  Intermediate Git",
     "section": "3.3 Working in the wrong branch",
-    "text": "3.3 Working in the wrong branch\nA common git problem is realizing that you forgot to switch to the appropriate branch before starting some work. There are a few different possible scenarios that require different solutions.\n\n3.3.1 Changes not committed\nIf you haven’t committed the work you can use the following pattern:\ngit stash\ngit switch &lt;branchname&gt;\ngit stash apply\nIf you want to create a new branch you can use git switch -c &lt;branchname&gt; without needing to use stash because changes in the working tree are kept when a new branch is created.\n\n\n3.3.2 Committed changes to wrong branch haven’t pushed\nIf you have committed the changes to the wrong branch (lets assume main) then we are going to need to use reset. First we need to take the changes out of the commit history of the main branch and store them in the working tree:\ngit reset --soft &lt;commit&gt;\nYou can replace &lt;commit&gt; with the commit SHA id or use a reference from the current commit e.g. HEAD^ for the previous commit.\nNow it is as if we didn’t commit them and we can use stash and switch as above to move the changes to the desired branch. The changes will be uncommitted in the branch so you will lose any commit messages and need to re-commit the files.\n\n\n3.3.3 Commited changes to wrong branch and pushed\nThis starts to get a bit messy but is still fixable. You should be able to follow a similar pattern but need to make sure that you don’t rewrite history for other users of your repository. So you can do reset --soft followed by stash and switch as above but then you will want to go back to main, pull so that your branch matches the GitHub version (origin) again and then use revert to undo the changes that were in the wrong branch with a new commit.\nTo revert the most recent commit:\ngit revert HEAD"
+    "text": "3.3 Working in the wrong branch\nA common git problem is realizing that you forgot to switch to the appropriate branch before starting some work. There are a few different possible scenarios that require different solutions.\n\n3.3.1 Changes not committed\nIf you haven’t committed the work you can use the following pattern:\ngit stash\ngit switch &lt;branchname&gt;\ngit stash apply\nIf you want to create a new branch you can use git switch -c &lt;branchname&gt; without needing to use stash because changes in the working tree are kept when a new branch is created.\n\n\n3.3.2 Committed changes to wrong branch haven’t pushed\nIf you have committed the changes to the wrong branch (lets assume main) then we are going to need to use reset. First we need to take the changes out of the commit history of the main branch and store them in the working tree:\ngit reset --soft &lt;commit&gt;\nYou can replace &lt;commit&gt; with the commit SHA id or use a reference from the current commit e.g. HEAD^ for the previous commit.\nNow it is as if we didn’t commit them and we can use stash and switch as above to move the changes to the desired branch. The changes will be uncommitted in the branch so you will lose any commit messages and need to re-commit the files.\n\n\n3.3.3 Commited changes to wrong branch and pushed\nThis starts to get a bit messy but is still fixable. You should be able to follow a similar pattern but need to make sure that you don’t rewrite history for other users of your repository. So you can do reset --soft followed by stash and switch as above but then you will want to go back to main, pull so that your branch matches the GitHub version (origin) again and then use revert to undo the changes that were in the wrong branch with a new commit.\nTo revert the most recent commit:\ngit revert HEAD",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Intermediate Git</span>"
+    ]
   },
   {
     "objectID": "git-intermediate.html#background-on-working-directory-staging-index-and-commit-history",
     "href": "git-intermediate.html#background-on-working-directory-staging-index-and-commit-history",
     "title": "3  Intermediate Git",
     "section": "3.4 Background on working directory, staging index and commit history",
-    "text": "3.4 Background on working directory, staging index and commit history\nThese are the three layers the git uses to track changes to files. I have tried to avoid this git jargon above but understanding it will be helpful for interpreting other git resources.\n\nWorking directory Your local files, when you save a change to a file the change is stored in the working directory and you will see the file as modified or untracked in the Rstudio Git pane.\nStaging index These are changes that you have told git should be included in the next commit by clicking the checkbox in the Git pane or using git add.\nCommit history These are snapshots of the working directory that have been saved at different points in history.\n\nSee this article for a detailed explanation of these three and how reset affects each of them."
+    "text": "3.4 Background on working directory, staging index and commit history\nThese are the three layers that git uses to track changes to files. I have tried to avoid this git jargon above but understanding it will be helpful for interpreting other git resources.\n\nWorking directory Your local files, when you save a change to a file the change is stored in the working directory and you will see the file as modified or untracked in the Rstudio Git pane.\nStaging index These are changes that you have told git should be included in the next commit by clicking the checkbox in the Git pane or using git add.\nCommit history These are snapshots of the working directory that have been saved at different points in history.\n\nSee this article for a detailed explanation of these three and how reset affects each of them.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Intermediate Git</span>"
+    ]
+  },
+  {
+    "objectID": "misc.html",
+    "href": "misc.html",
+    "title": "4  Miscellaneous tips and tricks",
+    "section": "",
+    "text": "4.1 Easy Extensions",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Miscellaneous tips and tricks</span>"
+    ]
+  },
+  {
+    "objectID": "misc.html#easy-extensions",
+    "href": "misc.html#easy-extensions",
+    "title": "4  Miscellaneous tips and tricks",
+    "section": "",
+    "text": "Making a repo work like a simple website https://happygitwithr.com/workflows-browsability.html##workflows-browsability\nInstalling a Git Client https://happygitwithr.com/git-client.html##git-client\nGood default folder structure and setup for a typical analysis project: https://frbcesab.github.io/rcompendium/index.html",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Miscellaneous tips and tricks</span>"
+    ]
+  },
+  {
+    "objectID": "misc.html#advanced-uses",
+    "href": "misc.html#advanced-uses",
+    "title": "4  Miscellaneous tips and tricks",
+    "section": "4.2 Advanced Uses",
+    "text": "4.2 Advanced Uses\n\nHost a website: https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html\nUse GitHub Actions for continuous integration: https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/\nUsing GitHub to manage frequently updated data:\n\nhttps://doi.org/10.1371/journal.pbio.3000125\n\nhttps://www.updatingdata.org/githubactions/\nhttps://doi.org/10.1111/2041-210X.13982",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Miscellaneous tips and tricks</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Happy Git and GitHub for the useR by Jennifer Bryan ::: {#refs} :::",
+    "crumbs": [
+      "References"
+    ]
   }
 ]
